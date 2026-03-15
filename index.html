@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#0d1117">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="theme-color" content="#0d1117"/>
+<title>ReptileKeeper</title>
+<link rel="apple-touch-icon" sizes="512x512" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAARcklEQVR42u3dPW8UVxQG4N2RWxcuwOn4TdRUSBT0CIkuoouE6CmQqKj5TXTBFBT8AKeIHDmWd3d2vu655zyPlCp47Z2Zve97z37td8x2eXV96ygAbOv3rx97R2E6B0/IAygHCgDCHkApUACEPgDKgAIg8AFQCBQAwQ+AIqAACH0AlAEFQPADoAgoAEIfAGVAARD8ACgCCoDgB0ARUAAEPwCKwKoG4Q8A9XJp7wADQL1pQDcTAOEPgLwqNAEQ/ACYBhSbAAh/AEwDCk0ABD8ApgHFJgDCHwDTgGIFQPgDoARsY++AAMD2Wj8l0HwCIPwBMA0oVgCEPwBKQLECIPwBoF0eDpXuLAAoAY0KgPAHgPb5OGS+cwCgBDQuAMIfAOLk5ZDpzgCAEhCkAAh/AIiXn0PPfzwAKAHBCoDwB4C4ebrv6Y/N7unbZw4CkN7Nh+8OwgRLf3fA4gVA+At6AMUgfglQAIQ9gFKgAAh/oQ+gDFQoAYsVgOrhL/QBlIGeSsAiBaBq+At9AGWg1xKgAAh+AEVAARD+gh9AEahQAmYVgCrhL/gBFIFsJUABEPwAioACIPwFP4AiUKEETPouAOEPgPU9jim5vN/qF7kwADANiDMFOHsCIPwBsO73PwXYr3njLgAATANiTgKGqidc+ANQOQ9GF4BMu3/hD0DWXBib1/ulb9AJBqBnGZ4SGPM0wKgJgPAHwDQg1xRgcDIBoF5unCwAve/+hT8AFfPjVH4PTh4A1MuRwUkDgHp5crQA9Dr+F/4AyJXjOT44SQBQL1+GTLt/4Q+AnBmX54OTAgD18mZwMgCgXu48WgAyfuUvAFT1WK53PwGw+wdA/iwwAehp9y/8AZBD06YAg4MOAPXyaHDqAKCeLguA3T8AcmnBAtDD8//CHwD5NM39nPcUAAAU1FUBsPsHQE4tXACij/+FPwBKwHx3ee8pAAAoqIsCYPcPgClAwQIAABQrAHb/AJgCrFQAfPsfANRxeXV9G3oCYPcPgCnAihMAAKCWsAXA7h8AUwATAAAgewGw+wfAFMAEAABYugB4CyAAFCwA0f4g438AMoqWb54CAAATAABAAdiY8T8AmUXKORMAADABAAAUgA0Z/wNQQZS8MwEAABMAAEABAAAUAABAAViMFwACUEmE3DMBAAATAABAAQAAFAAAQAEAABSAabwDAICKWuefCQAAmAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAcMiFQwDQxouXz2ffxtcv3xxIFACAzGE/9naVAhQAgGSBP+V3KwQoAAAJA18hQAEAEPyj/2ZFQAEAIHnon7ofyoACAEDy4DcVQAEAKB78ioACAEDh4FcE6vFJgADC33EwAQAQeJgGmAAACH8cHxMAAMHmWJkGmAAACH/HDQUAQIg5figAAMLLcSQsrwEAhBWzj6vXBJgAAIQMKOGvXGECAAik7r3/493B//fn33+ZBHDS/vLq+rblH/D07TNnARD+M0M/UhlQAsa7+fBdAQAQ/MsFf+sioATELwBeAwAI/+Thv+TtVD8fmSgAgPBPHv5KAAoAIPyLhr8SgAIACP+i4a8EcJ+3AVI2ELxISfhnCP8nT54c/H8/f/48+ntavV0QBQCahsDDn1UIhH9PjgX/w39zrAhsec48xmLxNkAEgMmAc9/Z7n9M+I+dBnh7YFst3wZoAoCF/8jvsVgJ/x53/od+LsIkgDi8CBALv8Ahefgv9fMeU7mYACD4R/4N0acBWxyrlseg8mf7LxneDycBXgyoAIDwH/H3tAjASMdh7N+y9HGya8z32Pb0mgIAXS34ay5cmULu0H2x6E/ftS99e14PgAKA8G9QAqruaB+730qBKQAKAHQTjOcsXsbX80qB4wcKAMK/mxIgtGpdC5gCKABQbMG/W8AEFtAbnwOA8LdbJYBWb8Vr/RZAjx8FAOEPgAIAwJ2l37LnLYAoANj9QyBbj+OjfAKgtUABQPgDK+/a7f5RAAA6mwLMDe/7P+/z/1EAAAqUgOjhbyqoAFCABzpsWwLs/FEAABKVgFNF4OG/Ef7c55MAsftP6tObzwf/3+uPrxygjkrA+z/ezZ4GCH8UACga+of+nTLQzyTgWBEQ/Jxrf3l1fdvyD3j69pmzYALAhuFvIpDDsTLQc+hX+3Kgmw/fTQCA7YP/4W0oAv1NBWAqLwLE7r94+K95e4ACAAQPfyUAFAAAQAEAquz+TQFAAQCKhr8SAAoAAKAAAAAKALC5rcfyngYABQAAUAAAAAUAAFAA4DHVvuQDIDJfBgT3jHnRmy/MARQAKBL6h/69MgDLMSXclqcAKB38c9/mtsRtnGPrwqHggAIAqRq+r9EFFAAouPPv6XYBFABMAYKH9BYlYKuxvPE/KACwqBcvn6cM/0wlQPhTaWOgAIDw7/b3ASgACP8gYbz2711rl273DwoAdK/1Try3EiD8acH4vw0fBETq3X8Fd6E9p2wIfjABgDThH+V5+K3+jqkhLvzBBADs/JNMA04VD6FPFMb/CgAQZCIA1OApAFLu/qO9Dc/bAsHuXwFA+AOgAABg948CgN0/AAoAwh+w+0cBAAAUAOz+Abt/FAAAQAHA7h+w+0cBoJRon4LnU/kQ/sJfAcDuHwAFAAC7f7bny4BIu/t//fFViM/grzb+9y2ECH8FABD8j/4bRUD4056nAEitddBUCLpPbz6fPWmZ8jMIfxQAgujlxX+tQrhK+Lf8eYQ/CgCECmPhrwQIfxQAKFYChL8SIPxRAEir1/f+rx3OXtyG8EcBgGIloEr4r7VbNwUQ/igA0F0JsPNH+KMAQEclYG5wL3Ebdv+mAMKfFnwQEGfL9tn/9wN8TADZ7YPwVwAg4VQAEPwVeAoAAOFvAgAAgt8EAADhjwkAZHsBICD4FQBgFcfeWdDbiw5ff3y16lv1vAhT8KMAQNrQP/TvhB+CHwUAkgf/sZ+NXgTWmgIoQEKfbXkRIAQI/zVuB44Fv/DHBAACBnb0acDSUwC7fzt9FAAoH/4Pbz97CRD+Ah8FAOjM3BIg/IU+7XgNAATd/W/9e+aE+LlBXu1bFEEBAOGfsgSMDXXBD3F4CgBYvAgAJgBg919oCgAoAACAAkAGvggIQAGgWPAL/3+1HsN7GgBQALDrB3a7nc8AQAFA+AOgACD8AVAAEP4AKAAIfwAFAIQ/dMkLAFEAEP4baP0xtz5mF1AAEP4AKAAIfwAUAIT/alqN4Y3/ecjz/ygACH8AFACOB7/w7283bvcPKADY9RcrAcKfxxj/owAg/AFQABD+maYAdv/AWi4cAuHPMiH96c1nwc8mjP8xAUD4J5wGCH/ABADhX2gaIPix+0cBQPgnmgYcKwNCH1AAEP4FygDY/ROF1wAIfwBMABD+83YlSgjY/WMCQLHwB0ABYKPgjxb+CgEo2igAJN31n1qQLFYg/FEAKBb+ACgAFA5/JQGUbRQAEoT/1y/fzl6MLF4g/FEA6Dz8AVAAEP7KAyjdKAAIf4sZCH8UAIS/RQ08TlAAEP4AKAAEDv8pr/RXLMDjAwWAzsPfIgfCHwWABsGfPfwtduDxgAJAgF1/y8XHogceBygAwr/o4mPxQ/iDAiD8iy4+FkGEPygAwn+jhSfa4mMxRPiDAiD8iy48FkWEPygAwr/owmNxRPiDAiD8iy48FkmEPygAwr/owmOxRPjD+i4cgrzhn2HRdOwQ/KAACP9CC5DgR/jDujwFIMQcNxD+mACQJcB6XIQEP8IfTACEv+MGwh8UACGWeSES/nj8gwLgwe+4gesZFAAP+sy7f4sl1gNQADzYHTdwfYMCQObdv8URJQAUAA9wxwxc76AAkHn3bzFECQAFwIMaABQA7P7BhgEUAA9mxws8DkABoO/dPwAKgBYPAAoA2Xf/ChN4PKAAePACgAKA3T/YSIAC4EELAAoAfe/+AVAA7P4BQAGgwu6/Ymn6+uXbf/+BxwfRXTgEHqisW9RcQ4ACQIndP6fPm1Lw/+PjeIACYPePUqDEAgoAFk7nuMdi4HoFBcDuHzYK0y2uWcEOCgB2U7hOgI55G6DdPwAKAHZ1ACgAdv8AoABg9w+AAmD3j/KirDl+7i8KABYIABQAu38AUACw+wdAAbD7V2TcT1wvoABgcQBAAbD7V2jcP9eL+wcKgMUPABQAu38AUADs/t0398txdb9AAbD7t/i5P46v+wMKgMUBABQAu39Fx/1wnN0PMAGwOLi/zpfj7e9HAbD7x6JoMXfcXS8oAFgg3HfnyvF3vaAA2P1TdJG0mDsPrhcUACwSxY6D8+R8uF5QAOz+KbZoWsxdL64XFAAsFMWOiXPkenG9kN2F3T/RFtGW58tC7npxvWACgAWj2DFyblwvrhdMAOz+CbSor3kOLeKuF9cLCgB2DMGP25ILu3PhenG9oADY/dNpgTrn/FrAXS+uFzABsON3fHG9gAJg92+BAUABQOADoADY/Qt8ABQAO3wAUACy7f4FPgAKgB0+ACgAGXb/Ah8ACkwABD4AJC8AL14+F/gAMFKabwMU/gBQsAAAAAoAAKAAAAAKAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAALkLwM2H784CAOW0zj8TAAAwAQAAFAAAQAEAABQAAEABmM47AQCoJELumQAAgAkAAKAAAAAKAACgACzKCwEBqCBK3pkAAIAJAACgAGzM0wAAZBYp50wAAMAEAABQABrwNAAAGUXLt+H3rx97pwUATAAAAAVge54GACCTiLlmAgAAJgDaEgBUyDMTAAAwAdCaAKBCjg273W7nrYAAUMfvXz/24Z8CMAUAwO5/pQkAAFBLFwXAFAAAu38TAABgqQIQ/YWApgAA2P3Pd5f3g4MKAPVyylMAAFDQ8NhYQLsCgHz5dD/nBwcZAOrlkqcAAKCgbguAKQAA8mjBAtDT9wIoAQDIoXEe5vvg4ANAvfwZxrQEAKBfj+V6ihcBmgIAIHcWmAA4GQCQO28OFoAenwZQAgCQM+PyfHByAKBevgxTWoOTBIDw73f3n3ICoAQAIE9mTgCcNACEf04nC0DvnwmgBABQMT9O5ffgJAJAvdwYVQAyfDKgEgBAlbwYk9ujg/3y6vo2y8l9+vaZKxyAtBvFMQVgWPLGnGQA5EL88D+rADjZAMiDPM7e1Wd6KuCOpwQABH+l3f+kCUDGrwo2DQAQ/pXCf9IEIOsUwDQAQPBXKgDDFr/ExQGA9T1O+E+eAFSYBJgGAAj+rOGvACgCAIJfAVACFAEAwV8h/BcpANVKgCIAIPh7D38FQBEAEPwKgBKgDAAI/Qrhv2gBUAKUAQCh30f4L14AlABlAEDoxw9/BUApABD2CoASoBgACPoK4b9aAVACACBu+O92E78LoNUfCwDCP3gBUAIAIG6ODj3/8QAg/IMWACUAAOLl5pDpzgCA8A9WAJQAAIiTk0PmOwcAwj9IAVACAKB9Lg6V7iwACP/GBUAJAED4t8vBofKdB4Cq+RcqfH1/AACCv8gEwDQAAOFfvAAoAQAI/22EDltPCQAg+ItMAEwDABD+xScApgEACP6CEwDTAACEf/EJgGkAAIK/4ATANAAAuVR8AmAaAIDgL14AFAEABH/hAqAIACD4CxcAZQAAoV+8ACgCAAj+wgVAGQBA6BcvAIoAAJWDv3wBUAgABH5lCoAyACD0FQCUAgBhX8E/MWioU3GKhNcAAAAASUVORK5CYII="/>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAARcklEQVR42u3dPW8UVxQG4N2RWxcuwOn4TdRUSBT0CIkuoouE6CmQqKj5TXTBFBT8AKeIHDmWd3d2vu655zyPlCp47Z2Zve97z37td8x2eXV96ygAbOv3rx97R2E6B0/IAygHCgDCHkApUACEPgDKgAIg8AFQCBQAwQ+AIqAACH0AlAEFQPADoAgoAEIfAGVAARD8ACgCCoDgB0ARUAAEPwCKwKoG4Q8A9XJp7wADQL1pQDcTAOEPgLwqNAEQ/ACYBhSbAAh/AEwDCk0ABD8ApgHFJgDCHwDTgGIFQPgDoARsY++AAMD2Wj8l0HwCIPwBMA0oVgCEPwBKQLECIPwBoF0eDpXuLAAoAY0KgPAHgPb5OGS+cwCgBDQuAMIfAOLk5ZDpzgCAEhCkAAh/AIiXn0PPfzwAKAHBCoDwB4C4ebrv6Y/N7unbZw4CkN7Nh+8OwgRLf3fA4gVA+At6AMUgfglQAIQ9gFKgAAh/oQ+gDFQoAYsVgOrhL/QBlIGeSsAiBaBq+At9AGWg1xKgAAh+AEVAARD+gh9AEahQAmYVgCrhL/gBFIFsJUABEPwAioACIPwFP4AiUKEETPouAOEPgPU9jim5vN/qF7kwADANiDMFOHsCIPwBsO73PwXYr3njLgAATANiTgKGqidc+ANQOQ9GF4BMu3/hD0DWXBib1/ulb9AJBqBnGZ4SGPM0wKgJgPAHwDQg1xRgcDIBoF5unCwAve/+hT8AFfPjVH4PTh4A1MuRwUkDgHp5crQA9Dr+F/4AyJXjOT44SQBQL1+GTLt/4Q+AnBmX54OTAgD18mZwMgCgXu48WgAyfuUvAFT1WK53PwGw+wdA/iwwAehp9y/8AZBD06YAg4MOAPXyaHDqAKCeLguA3T8AcmnBAtDD8//CHwD5NM39nPcUAAAU1FUBsPsHQE4tXACij/+FPwBKwHx3ee8pAAAoqIsCYPcPgClAwQIAABQrAHb/AJgCrFQAfPsfANRxeXV9G3oCYPcPgCnAihMAAKCWsAXA7h8AUwATAAAgewGw+wfAFMAEAABYugB4CyAAFCwA0f4g438AMoqWb54CAAATAABAAdiY8T8AmUXKORMAADABAAAUgA0Z/wNQQZS8MwEAABMAAEABAAAUAABAAViMFwACUEmE3DMBAAATAABAAQAAFAAAQAEAABSAabwDAICKWuefCQAAmAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAcMiFQwDQxouXz2ffxtcv3xxIFACAzGE/9naVAhQAgGSBP+V3KwQoAAAJA18hQAEAEPyj/2ZFQAEAIHnon7ofyoACAEDy4DcVQAEAKB78ioACAEDh4FcE6vFJgADC33EwAQAQeJgGmAAACH8cHxMAAMHmWJkGmAAACH/HDQUAQIg5figAAMLLcSQsrwEAhBWzj6vXBJgAAIQMKOGvXGECAAik7r3/493B//fn33+ZBHDS/vLq+rblH/D07TNnARD+M0M/UhlQAsa7+fBdAQAQ/MsFf+sioATELwBeAwAI/+Thv+TtVD8fmSgAgPBPHv5KAAoAIPyLhr8SgAIACP+i4a8EcJ+3AVI2ELxISfhnCP8nT54c/H8/f/48+ntavV0QBQCahsDDn1UIhH9PjgX/w39zrAhsec48xmLxNkAEgMmAc9/Z7n9M+I+dBnh7YFst3wZoAoCF/8jvsVgJ/x53/od+LsIkgDi8CBALv8Ahefgv9fMeU7mYACD4R/4N0acBWxyrlseg8mf7LxneDycBXgyoAIDwH/H3tAjASMdh7N+y9HGya8z32Pb0mgIAXS34ay5cmULu0H2x6E/ftS99e14PgAKA8G9QAqruaB+730qBKQAKAHQTjOcsXsbX80qB4wcKAMK/mxIgtGpdC5gCKABQbMG/W8AEFtAbnwOA8LdbJYBWb8Vr/RZAjx8FAOEPgAIAwJ2l37LnLYAoANj9QyBbj+OjfAKgtUABQPgDK+/a7f5RAAA6mwLMDe/7P+/z/1EAAAqUgOjhbyqoAFCABzpsWwLs/FEAABKVgFNF4OG/Ef7c55MAsftP6tObzwf/3+uPrxygjkrA+z/ezZ4GCH8UACga+of+nTLQzyTgWBEQ/Jxrf3l1fdvyD3j69pmzYALAhuFvIpDDsTLQc+hX+3Kgmw/fTQCA7YP/4W0oAv1NBWAqLwLE7r94+K95e4ACAAQPfyUAFAAAQAEAquz+TQFAAQCKhr8SAAoAAKAAAAAKALC5rcfyngYABQAAUAAAAAUAAFAA4DHVvuQDIDJfBgT3jHnRmy/MARQAKBL6h/69MgDLMSXclqcAKB38c9/mtsRtnGPrwqHggAIAqRq+r9EFFAAouPPv6XYBFABMAYKH9BYlYKuxvPE/KACwqBcvn6cM/0wlQPhTaWOgAIDw7/b3ASgACP8gYbz2711rl273DwoAdK/1Try3EiD8acH4vw0fBETq3X8Fd6E9p2wIfjABgDThH+V5+K3+jqkhLvzBBADs/JNMA04VD6FPFMb/CgAQZCIA1OApAFLu/qO9Dc/bAsHuXwFA+AOgAABg948CgN0/AAoAwh+w+0cBAAAUAOz+Abt/FAAAQAHA7h+w+0cBoJRon4LnU/kQ/sJfAcDuHwAFAAC7f7bny4BIu/t//fFViM/grzb+9y2ECH8FABD8j/4bRUD4056nAEitddBUCLpPbz6fPWmZ8jMIfxQAgujlxX+tQrhK+Lf8eYQ/CgCECmPhrwQIfxQAKFYChL8SIPxRAEir1/f+rx3OXtyG8EcBgGIloEr4r7VbNwUQ/igA0F0JsPNH+KMAQEclYG5wL3Ebdv+mAMKfFnwQEGfL9tn/9wN8TADZ7YPwVwAg4VQAEPwVeAoAAOFvAgAAgt8EAADhjwkAZHsBICD4FQBgFcfeWdDbiw5ff3y16lv1vAhT8KMAQNrQP/TvhB+CHwUAkgf/sZ+NXgTWmgIoQEKfbXkRIAQI/zVuB44Fv/DHBAACBnb0acDSUwC7fzt9FAAoH/4Pbz97CRD+Ah8FAOjM3BIg/IU+7XgNAATd/W/9e+aE+LlBXu1bFEEBAOGfsgSMDXXBD3F4CgBYvAgAJgBg919oCgAoAACAAkAGvggIQAGgWPAL/3+1HsN7GgBQALDrB3a7nc8AQAFA+AOgACD8AVAAEP4AKAAIfwAFAIQ/dMkLAFEAEP4baP0xtz5mF1AAEP4AKAAIfwAUAIT/alqN4Y3/ecjz/ygACH8AFACOB7/w7283bvcPKADY9RcrAcKfxxj/owAg/AFQABD+maYAdv/AWi4cAuHPMiH96c1nwc8mjP8xAUD4J5wGCH/ABADhX2gaIPix+0cBQPgnmgYcKwNCH1AAEP4FygDY/ROF1wAIfwBMABD+83YlSgjY/WMCQLHwB0ABYKPgjxb+CgEo2igAJN31n1qQLFYg/FEAKBb+ACgAFA5/JQGUbRQAEoT/1y/fzl6MLF4g/FEA6Dz8AVAAEP7KAyjdKAAIf4sZCH8UAIS/RQ08TlAAEP4AKAAEDv8pr/RXLMDjAwWAzsPfIgfCHwWABsGfPfwtduDxgAJAgF1/y8XHogceBygAwr/o4mPxQ/iDAiD8iy4+FkGEPygAwn+jhSfa4mMxRPiDAiD8iy48FkWEPygAwr/owmNxRPiDAiD8iy48FkmEPygAwr/owmOxRPjD+i4cgrzhn2HRdOwQ/KAACP9CC5DgR/jDujwFIMQcNxD+mACQJcB6XIQEP8IfTACEv+MGwh8UACGWeSES/nj8gwLgwe+4gesZFAAP+sy7f4sl1gNQADzYHTdwfYMCQObdv8URJQAUAA9wxwxc76AAkHn3bzFECQAFwIMaABQA7P7BhgEUAA9mxws8DkABoO/dPwAKgBYPAAoA2Xf/ChN4PKAAePACgAKA3T/YSIAC4EELAAoAfe/+AVAA7P4BQAGgwu6/Ymn6+uXbf/+BxwfRXTgEHqisW9RcQ4ACQIndP6fPm1Lw/+PjeIACYPePUqDEAgoAFk7nuMdi4HoFBcDuHzYK0y2uWcEOCgB2U7hOgI55G6DdPwAKAHZ1ACgAdv8AoABg9w+AAmD3j/KirDl+7i8KABYIABQAu38AUACw+wdAAbD7V2TcT1wvoABgcQBAAbD7V2jcP9eL+wcKgMUPABQAu38AUADs/t0398txdb9AAbD7t/i5P46v+wMKgMUBABQAu39Fx/1wnN0PMAGwOLi/zpfj7e9HAbD7x6JoMXfcXS8oAFgg3HfnyvF3vaAA2P1TdJG0mDsPrhcUACwSxY6D8+R8uF5QAOz+KbZoWsxdL64XFAAsFMWOiXPkenG9kN2F3T/RFtGW58tC7npxvWACgAWj2DFyblwvrhdMAOz+CbSor3kOLeKuF9cLCgB2DMGP25ILu3PhenG9oADY/dNpgTrn/FrAXS+uFzABsON3fHG9gAJg92+BAUABQOADoADY/Qt8ABQAO3wAUACy7f4FPgAKgB0+ACgAGXb/Ah8ACkwABD4AJC8AL14+F/gAMFKabwMU/gBQsAAAAAoAAKAAAAAKAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAoAACAAgAAKAAAgAIAACgAAIACAAAKAACgAAAACgAAoAAAAAoAAKAAAAAKAACgAAAACgAAoAAAALkLwM2H784CAOW0zj8TAAAwAQAAFAAAQAEAABQAAEABmM47AQCoJELumQAAgAkAAKAAAAAKAACgACzKCwEBqCBK3pkAAIAJAACgAGzM0wAAZBYp50wAAMAEAABQABrwNAAAGUXLt+H3rx97pwUATAAAAAVge54GACCTiLlmAgAAJgDaEgBUyDMTAAAwAdCaAKBCjg273W7nrYAAUMfvXz/24Z8CMAUAwO5/pQkAAFBLFwXAFAAAu38TAABgqQIQ/YWApgAA2P3Pd5f3g4MKAPVyylMAAFDQ8NhYQLsCgHz5dD/nBwcZAOrlkqcAAKCgbguAKQAA8mjBAtDT9wIoAQDIoXEe5vvg4ANAvfwZxrQEAKBfj+V6ihcBmgIAIHcWmAA4GQCQO28OFoAenwZQAgCQM+PyfHByAKBevgxTWoOTBIDw73f3n3ICoAQAIE9mTgCcNACEf04nC0DvnwmgBABQMT9O5ffgJAJAvdwYVQAyfDKgEgBAlbwYk9ujg/3y6vo2y8l9+vaZKxyAtBvFMQVgWPLGnGQA5EL88D+rADjZAMiDPM7e1Wd6KuCOpwQABH+l3f+kCUDGrwo2DQAQ/pXCf9IEIOsUwDQAQPBXKgDDFr/ExQGA9T1O+E+eAFSYBJgGAAj+rOGvACgCAIJfAVACFAEAwV8h/BcpANVKgCIAIPh7D38FQBEAEPwKgBKgDAAI/Qrhv2gBUAKUAQCh30f4L14AlABlAEDoxw9/BUApABD2CoASoBgACPoK4b9aAVACACBu+O92E78LoNUfCwDCP3gBUAIAIG6ODj3/8QAg/IMWACUAAOLl5pDpzgCA8A9WAJQAAIiTk0PmOwcAwj9IAVACAKB9Lg6V7iwACP/GBUAJAED4t8vBofKdB4Cq+RcqfH1/AACCv8gEwDQAAOFfvAAoAQAI/22EDltPCQAg+ItMAEwDABD+xScApgEACP6CEwDTAACEf/EJgGkAAIK/4ATANAAAuVR8AmAaAIDgL14AFAEABH/hAqAIACD4CxcAZQAAoV+8ACgCAAj+wgVAGQBA6BcvAIoAAJWDv3wBUAgABH5lCoAyACD0FQCUAgBhX8E/MWioU3GKhNcAAAAASUVORK5CYII="/>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+<link rel="preconnect" href="https://www.gstatic.com"/>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+body{background:#0d1117;color:#e6edf3;font-family:Georgia,serif;min-height:100vh;overscroll-behavior:none}
+input,select,textarea,button{font-family:Georgia,serif}
+input[type=date]::-webkit-calendar-picker-indicator{filter:invert(1)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#0d1117}::-webkit-scrollbar-thumb{background:#30363d;border-radius:4px}
+.page{display:flex;flex-direction:column;min-height:100vh;background:#0d1117}
+.hdr{background:#161b22;border-bottom:1px solid #30363d;padding:14px 16px;display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:50;position:relative}
+.hdr-back{background:#161b22;border-bottom:1px solid #30363d;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;color:#7ee787}
+.wrap{max-width:600px;margin:0 auto;padding:16px 14px 100px;width:100%}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#161b22;border-top:1px solid #30363d;display:flex;align-items:center;justify-content:space-around;padding:10px 16px 20px;z-index:50;gap:8px}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;color:#8b949e;font-family:Georgia,serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:6px 12px;border-radius:10px;min-width:60px}
+.nav-btn.active{color:#7ee787}
+.nav-btn .nav-icon{font-size:22px}
+.nav-btn-main{display:flex;flex-direction:column;align-items:center;gap:3px;background:#238636;border:none;cursor:pointer;color:#fff;font-family:Georgia,serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:10px 24px;border-radius:14px;box-shadow:0 2px 12px #23863655}
+.nav-btn-main .nav-icon{font-size:24px}
+.nav-btn:active,.nav-btn-main:active{opacity:.7}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:18px;margin-bottom:14px}
+.card-green{background:linear-gradient(135deg,#1a2a1a,#161b22);border-color:#238636}
+label.lbl{display:block;margin-bottom:5px;color:#8b949e;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.inp{width:100%;padding:10px 12px;background:#0d1117;border:1px solid #30363d;border-radius:8px;color:#e6edf3;font-size:15px;outline:none}
+.inp:focus{border-color:#238636}
+select.inp{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238b949e' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.grp{margin-bottom:16px}
+.row{display:flex;gap:10px}
+.btn{padding:10px 16px;border-radius:8px;border:none;cursor:pointer;font-size:14px;font-weight:700;-webkit-appearance:none}
+.btn:active{opacity:.7}
+.btn-green{background:#238636;color:#fff}
+.btn-ghost{background:#21262d;color:#e6edf3;border:1px solid #30363d}
+.btn-outline-green{background:transparent;color:#7ee787;border:1px solid #238636}
+.btn-danger{background:#da363422;color:#f85149;border:1px solid #f8514944}
+.btn-sm{padding:7px 12px;font-size:12px}
+.fab{position:fixed;bottom:90px;right:20px;width:48px;height:48px;border-radius:50%;background:#238636;color:#fff;border:none;cursor:pointer;font-size:26px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 14px #23863666;z-index:40}
+.fab:active{transform:scale(.92)}
+.sec{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#8b949e;font-weight:700;margin-bottom:10px}
+.divider{border:none;border-top:1px solid #30363d;margin:14px 0}
+.badge{padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px}
+.animal-card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:16px;cursor:pointer}
+.animal-card:active{border-color:#238636;opacity:.85}
+.stat-box{background:#0d1117;border:1px solid #30363d;border-radius:10px;padding:11px 14px;flex:1;min-width:80px}
+.stat-label{font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px}
+.tabs{display:flex;border-bottom:1px solid #30363d;margin-bottom:16px}
+.tab{padding:9px 14px;background:transparent;border:none;cursor:pointer;font-size:13px;font-weight:700;border-bottom:2px solid transparent;color:#8b949e}
+.tab.active{color:#7ee787;border-bottom-color:#7ee787}
+.log-row{background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:10px 13px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.day-btn{padding:7px 10px;border-radius:6px;border:1px solid #30363d;background:#0d1117;color:#8b949e;cursor:pointer;font-size:12px;font-weight:700}
+.day-btn.active{background:#238636;color:#fff;border-color:#238636}
+.overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:#000b;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:22px;width:100%;max-width:400px;max-height:85vh;display:flex;flex-direction:column}
+.modal-scroll{overflow-y:auto;flex:1}
+.alert-box{background:#f8514911;border:1px solid #f8514944;border-radius:12px;padding:13px 16px;margin-bottom:16px}
+.link-btn{background:none;border:none;color:#58a6ff;cursor:pointer;font-size:12px;padding:0;font-family:Georgia,serif;text-decoration:underline}
+.feeder-option{padding:10px 12px;color:#e6edf3;cursor:pointer;font-size:14px;border-radius:6px;display:flex;align-items:center;gap:8px}
+.feeder-option:active{background:#238636}
+.feeder-option.selected{background:#23863622;color:#7ee787}
+.list-item{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #30363d}
+.list-item-name{flex:1;font-size:14px}
+.icon-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:3px 7px;border-radius:4px}
+.empty{text-align:center;padding:50px 20px;color:#8b949e}
+.empty-icon{font-size:54px;margin-bottom:12px}
+.empty-title{font-size:20px;color:#e6edf3;margin-bottom:8px}
+.size-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.size-chip{padding:6px 12px;border-radius:20px;border:1px solid #30363d;background:#0d1117;color:#8b949e;cursor:pointer;font-size:13px;font-weight:600}
+.size-chip.active{background:#238636;color:#fff;border-color:#238636}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.cal-nav{background:none;border:1px solid #30363d;color:#e6edf3;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:18px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:16px}
+.cal-day-name{text-align:center;font-size:11px;color:#8b949e;font-weight:700;padding:4px 0;text-transform:uppercase}
+.cal-day{min-height:44px;border-radius:8px;padding:4px;background:#161b22;border:1px solid #30363d}
+.cal-day.today{border-color:#238636}
+.cal-day .cal-num{font-size:12px;color:#8b949e;font-weight:700;line-height:1}
+.cal-day.today .cal-num{color:#7ee787}
+.cal-dot-wrap{display:flex;flex-wrap:wrap;gap:2px;margin-top:3px}
+.cal-dot{width:8px;height:8px;border-radius:50%}
+.week-row{display:flex;flex-direction:column;gap:8px}
+.week-day{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:12px 14px}
+.week-day.today{border-color:#238636}
+.week-day-title{font-size:13px;font-weight:700;margin-bottom:6px;color:#8b949e}
+.week-day.today .week-day-title{color:#7ee787}
+.week-feed-pill{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700;margin:2px}
+.settings-item{background:#161b22;border:1px solid #30363d;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.settings-item:active{opacity:.7}
+.settings-icon{font-size:22px;margin-right:12px}
+.settings-label{font-size:15px;font-weight:700}
+.settings-sub{font-size:12px;color:#8b949e;margin-top:2px}
+.track-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.track-toggle{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;border:1px solid #30363d;background:#0d1117;cursor:pointer}
+.track-toggle.active{border-color:#238636;background:#23863615}
+.track-toggle.always{opacity:.5;cursor:default}
+.track-toggle-icon{font-size:18px}
+.track-toggle-label{font-size:13px;font-weight:600;flex:1}
+.track-toggle-check{width:18px;height:18px;border-radius:50%;border:2px solid #30363d;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.track-toggle.active .track-toggle-check{background:#238636;border-color:#238636;color:#fff}
+.sync-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-left:6px;vertical-align:middle}
+.sync-ok{background:#7ee787}
+.sync-ing{background:#ff9a00;animation:pulse 1s infinite}
+.sync-err{background:#f85149}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;background:#0d1117;gap:16px}
+.spinner{width:36px;height:36px;border:3px solid #30363d;border-top-color:#7ee787;border-radius:50%;animation:spin 0.8s linear infinite}
+.rtl{direction:rtl;text-align:right}
+</style>
+<link rel="manifest" href="/manifest.json"/>
+<meta name="application-name" content="ReptileKeeper"/>
+<meta name="description" content="Reptile husbandry tracker for managing feeding schedules"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="ReptileKeeper"/>
+</head>
+<body>
+<div id="app"></div>
+<div id="initial-loader" style="position:fixed;top:0;left:0;right:0;bottom:0;background:#0d1117;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:9999">
+  <div style="font-size:48px">🦎</div>
+  <div style="width:36px;height:36px;border:3px solid #30363d;border-top-color:#7ee787;border-radius:50%;animation:spin 0.8s linear infinite"></div>
+  <div style="color:#8b949e;font-family:Georgia,serif;font-size:14px">Loading...</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import{getFirestore,collection,doc,onSnapshot,setDoc,deleteDoc}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+const cfg={apiKey:"AIzaSyAzdF3cmHNouM0zQ2bPRZrhgE5OtoHb1Io",authDomain:"reptiles-keeper.firebaseapp.com",projectId:"reptiles-keeper",storageBucket:"reptiles-keeper.firebasestorage.app",messagingSenderId:"604524870744",appId:"1:604524870744:web:d349596f826d84d79cde2d"};
+const fb=initializeApp(cfg);
+const db=getFirestore(fb);
+window._db={
+  async saveAnimal(a){await setDoc(doc(db,"animals",String(a.id)),a);},
+  async deleteAnimal(id){await deleteDoc(doc(db,"animals",String(id)));},
+  async saveSettings(d){await setDoc(doc(db,"settings","main"),d);},
+  subscribeAnimals(cb){return onSnapshot(collection(db,"animals"),snap=>{const l=[];snap.forEach(d=>l.push(d.data()));l.sort((a,b)=>a.id-b.id);cb(l);});},
+  subscribeSettings(cb){return onSnapshot(doc(db,"settings","main"),snap=>{if(snap.exists())cb(snap.data());});}
+};
+window._fbReady=true;
+document.dispatchEvent(new Event("fb-ready"));
+</script>
+<script>
+const {useState,useEffect,useRef}=React;
+
+// ── Constants ─────────────────────────────────────────────────────────────────
+const DEF_TYPES=["Corn Snake","Boa Constrictor Imperator","Leopard Gecko"];
+const DEF_FEEDERS=[
+  {name:"Live Rat",sizes:["Pinky","Fuzzy Pinky","Small Weaned","Big Weaned","Adolescent","Subadult","Adult","Jumbo"]},
+  {name:"FT Rat",sizes:["Pinky","Fuzzy Pinky","Small Weaned","Big Weaned","Adolescent","Subadult","Adult","Jumbo"]},
+  {name:"Live Mouse",sizes:["Pinky","Fuzzy Pinky","Weaned","Subadult","Adult"]},
+  {name:"FT Mouse",sizes:["Pinky","Fuzzy Pinky","Weaned","Subadult","Adult"]},
+  {name:"Mealworms",sizes:[]},{name:"Crickets",sizes:[]}
+];
+const DAYS_EN=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const DAYS_FULL_EN=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const MONTHS_EN=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MONTHS_S_EN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const DAYS_HE=["ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת"];
+const DAYS_FULL_HE=["ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת"];
+const MONTHS_HE=["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"];
+const MONTHS_S_HE=["ינו","פבר","מרץ","אפר","מאי","יוני","יולי","אוג","ספט","אוק","נוב","דצמ"];
+const ANIMAL_COLORS=["#7ee787","#58a6ff","#d2a8ff","#ff9a00","#f85149","#ffa657","#79c0ff","#56d364"];
+const ALL_CATS=[
+  {key:"feeding",icon:"🍖",en:"Feeding",he:"האכלה",color:"#7ee787",always:true},
+  {key:"water",icon:"💧",en:"Water Change",he:"החלפת מים",color:"#58a6ff",always:false},
+  {key:"shed",icon:"🔄",en:"Shed",he:"הפשלה",color:"#d2a8ff",always:false},
+  {key:"weight",icon:"⚖️",en:"Weight (g)",he:"משקל (גרם)",color:"#ffa657",always:false},
+  {key:"clean",icon:"🧹",en:"Enclosure Clean",he:"ניקוי כלוב",color:"#79c0ff",always:false},
+  {key:"defecate",icon:"💩",en:"Defecation",he:"הפרשה",color:"#a8dadc",always:false},
+];
+const DEF_TRACKING=["feeding","water","shed"];
+const DEF_USERS=["Din","Gil","Bar"];
+const EMPTY_FORM={name:"",type:"",morph:"",birthMonth:"",birthYear:"",scheduleType:"days",intervalDays:7,feedingDays:[],feederName:"",feederSize:"",tracking:DEF_TRACKING,lastFed:"",lastWater:"",lastShed:"",notes:""};
+
+// ── Translations ──────────────────────────────────────────────────────────────
+const TR={
+  en:{
+    appName:"ReptileKeeper",dashboard:"Dashboard",calendar:"Calendar",settings:"Settings",
+    myAnimals:"My Animals",noAnimals:"No animals yet",addFirst:"Tap + to add your first reptile",
+    addFirstBtn:"+ Add Your First Animal",feedAlerts:"⚠ Feeding Alerts",overdueBy:"overdue",dueToday:"due today",
+    nextFeed:"Next Feeding",lastFed:"Last Fed",lastWater:"Last Water",lastShed:"Last Shed",
+    lastWeight:"Last Weight",lastClean:"Last Clean",lastDefecate:"Last Defecation",
+    noSchedule:"No schedule",feedToday:"Feed Today!",inDays:"In",dUnit:"d",overdueLbl:"Overdue",
+    addAnimal:"Add New Animal",editAnimal:"Edit Animal",saveChanges:"Save Changes",cancel:"Cancel",
+    speciesType:"Species / Type *",morph:"Morph",nameLbl:"Name *",dob:"Date of Birth",
+    monthLbl:"Month",yearLbl:"Year",feederType:"Feeder Type",scheduleType:"Schedule Type",
+    everyXDays:"Every X Days",daysOfWeek:"Days of Week",daysBetween:"days between feedings",
+    maintenance:"Maintenance",lastWaterLbl:"Last Water Change",lastShedLbl:"Last Shed",
+    notesLbl:"Notes",trackCats:"Tracking Categories",trackHint:"Choose what to track. Feeding is always on.",
+    manageSpecies:"+ Manage species list",manageFeeders:"+ Manage feeder list",
+    selectType:"Select type...",selectFeeder:"Select feeder...",sizeLbl:"Size",
+    infoTab:"📋 Info",logsTab:"📜 Logs",noLogs:"No logs yet.",
+    feedSchedule:"Feeding Schedule",feederLbl:"Feeder",scheduleLbl:"Schedule",
+    back:"← Back",editBtn:"Edit",deleteBtn:"Delete",
+    manageLists:"Manage Lists",speciesTypes:"Species / Types",speciesCount:"species in list",
+    feederOpts:"Feeder Options",feedersCount:"feeders in list",
+    dataBackup:"Data Backup",exportLbl:"Export Backup",exportSub:"Download all data as a file",
+    importLbl:"Import Backup",importSub:"Restore from a backup file",
+    language:"Language",connecting:"Connecting to database...",
+    monthly:"📅 Monthly",weekly:"📆 Weekly",noAnimalsCal:"Add animals to see their schedule",
+    actualFeed:"Actual feeding",scheduledLbl:"Scheduled",legendLbl:"Legend",
+    addNew:"Add new...",addBtn:"Add",sizesLbl:"Sizes",addSize:"Add size...",noItems:"No items yet.",
+    dateLbl:"Date",whatFed:"What was fed?",weightGrams:"Weight (grams)",noteOpt:"Note (optional)",
+    anyNotes:"Any notes...",saveLbl:"Save",delConfirm:"Delete this animal?",
+    importDone:"Import complete!",invalidBackup:"Invalid backup file.",saveFailed:"Save failed. Check your connection.",
+    bornLbl:"Born",oldLbl:"old",morphPh:"e.g. Pastel Clown, Albino...",namePh:"e.g. Nagini",
+    notesPh:"Any extra info...",weightPh:"e.g. 350",english:"English",hebrew:"עברית",
+  },
+  he:{
+    appName:"מעקב זוחלים",dashboard:"ראשי",calendar:"לוח שנה",settings:"הגדרות",
+    myAnimals:"החיות שלי",noAnimals:"אין חיות עדיין",addFirst:"לחץ + להוסיף את הזוחל הראשון",
+    addFirstBtn:"+ הוסף חיה ראשונה",feedAlerts:"⚠ התראות האכלה",overdueBy:"באיחור",dueToday:"להאכיל היום",
+    nextFeed:"האכלה הבאה",lastFed:"האכלה אחרונה",lastWater:"החלפת מים אחרונה",lastShed:"הפשלה אחרונה",
+    lastWeight:"משקל אחרון",lastClean:"ניקוי אחרון",lastDefecate:"הפרשה אחרונה",
+    noSchedule:"אין לוח זמנים",feedToday:"להאכיל היום!",inDays:"בעוד",dUnit:"י",overdueLbl:"באיחור",
+    addAnimal:"הוסף חיה חדשה",editAnimal:"עריכת חיה",saveChanges:"שמור שינויים",cancel:"ביטול",
+    speciesType:"מין / סוג *",morph:"מורף",nameLbl:"שם *",dob:"תאריך לידה",
+    monthLbl:"חודש",yearLbl:"שנה",feederType:"סוג מזון",scheduleType:"לוח זמנים",
+    everyXDays:"כל X ימים",daysOfWeek:"ימי השבוע",daysBetween:"ימים בין האכלות",
+    maintenance:"תחזוקה",lastWaterLbl:"החלפת מים אחרונה",lastShedLbl:"הפשלה אחרונה",
+    notesLbl:"הערות",trackCats:"קטגוריות מעקב",trackHint:"בחר מה לעקוב. האכלה תמיד פעילה.",
+    manageSpecies:"+ ניהול רשימת מינים",manageFeeders:"+ ניהול רשימת מזון",
+    selectType:"בחר סוג...",selectFeeder:"בחר מזון...",sizeLbl:"גודל",
+    infoTab:"📋 מידע",logsTab:"📜 יומן",noLogs:"אין רשומות עדיין.",
+    feedSchedule:"לוח האכלות",feederLbl:"מזון",scheduleLbl:"לוח זמנים",
+    back:"→ חזור",editBtn:"עריכה",deleteBtn:"מחיקה",
+    manageLists:"ניהול רשימות",speciesTypes:"מינים / סוגים",speciesCount:"מינים ברשימה",
+    feederOpts:"אפשרויות מזון",feedersCount:"מזונות ברשימה",
+    dataBackup:"גיבוי נתונים",exportLbl:"ייצוא גיבוי",exportSub:"הורד את כל הנתונים כקובץ",
+    importLbl:"ייבוא גיבוי",importSub:"שחזר מקובץ גיבוי",
+    language:"שפה",connecting:"מתחבר למסד נתונים...",
+    monthly:"📅 חודשי",weekly:"📆 שבועי",noAnimalsCal:"הוסף חיות לצפות בלוח",
+    actualFeed:"האכלה בפועל",scheduledLbl:"מתוכנן",legendLbl:"מקרא",
+    addNew:"הוסף חדש...",addBtn:"הוסף",sizesLbl:"גדלים",addSize:"הוסף גודל...",noItems:"אין פריטים.",
+    dateLbl:"תאריך",whatFed:"מה הואכל?",weightGrams:"משקל (גרמים)",noteOpt:"הערה (אופציונלי)",
+    anyNotes:"כל הערה...",saveLbl:"שמור",delConfirm:"למחוק חיה זו?",
+    importDone:"הייבוא הושלם!",invalidBackup:"קובץ גיבוי לא תקין.",saveFailed:"השמירה נכשלה.",
+    bornLbl:"נולד",oldLbl:"",morphPh:"לדוגמה: פסטל קלאון...",namePh:"לדוגמה: נגיני",
+    notesPh:"מידע נוסף...",weightPh:"לדוגמה: 350",english:"English",hebrew:"עברית",
+  }
+};
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function todayStr(){return new Date().toISOString().split("T")[0];}
+function fmtDate(str,MS){
+  if(!str)return"—";
+  const d=new Date(str+"T12:00:00");
+  return String(d.getDate()).padStart(2,"0")+" "+MS[d.getMonth()]+" "+String(d.getFullYear()).slice(2);
+}
+function calcAge(bm,by){
+  if(!bm||!by)return null;
+  const now=new Date();
+  let mo=(now.getFullYear()-Number(by))*12+(now.getMonth()-(Number(bm)-1));
+  if(mo<0)mo=0;
+  const y=Math.floor(mo/12),m=mo%12;
+  if(y===0)return m+"mo";if(m===0)return y+"yr";return y+"yr "+m+"mo";
+}
+function nextFeedDate(animal){
+  if(!animal.lastFed)return null;
+  const last=new Date(animal.lastFed+"T12:00:00");
+  if(animal.scheduleType==="days"){
+    const n=new Date(last);n.setDate(n.getDate()+(Number(animal.intervalDays)||7));return n;
+  }
+  if(animal.scheduleType==="weekdays"&&animal.feedingDays&&animal.feedingDays.length){
+    const now=new Date();now.setHours(0,0,0,0);
+    for(let i=1;i<=14;i++){const c=new Date(now);c.setDate(now.getDate()+i);if(animal.feedingDays.includes(c.getDay()))return c;}
+  }
+  return null;
+}
+function daysUntilDate(date){
+  if(!date)return null;
+  const now=new Date();now.setHours(0,0,0,0);
+  const d=new Date(date);d.setHours(0,0,0,0);
+  return Math.round((d-now)/86400000);
+}
+function typeEmoji(type){
+  if(!type)return"🦎";const tl=type.toLowerCase();
+  if(tl.includes("tortoise")||tl.includes("turtle"))return"🐢";
+  if(tl.includes("snake")||tl.includes("python")||tl.includes("boa")||tl.includes("corn"))return"🐍";
+  return"🦎";
+}
+function lsGet(k,def){try{const v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch{return def;}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch{}}
+
+function getFeedDates(animals,year,month){
+  // month is 0-indexed
+  const result={};
+  const mStart=new Date(year,month,1);
+  const mEnd=new Date(year,month+1,0);
+  const tStr=todayStr();
+  function addE(ds,animal,color,actual){
+    if(!result[ds])result[ds]=[];
+    if(!result[ds].some(e=>e.animal.id===animal.id&&e.actual===actual))
+      result[ds].push({animal,color,actual});
+  }
+  animals.forEach((animal,idx)=>{
+    const color=ANIMAL_COLORS[idx%ANIMAL_COLORS.length];
+    // Past: use real logs
+    (animal.logs||[]).filter(l=>l.type==="feeding").forEach(l=>{
+      if(l.date>=mStart.toISOString().split("T")[0]&&l.date<=mEnd.toISOString().split("T")[0])
+        addE(l.date,animal,color,true);
+    });
+    // Future: project from lastFed
+    if(!animal.lastFed)return;
+    if(animal.scheduleType==="days"){
+      const interval=Number(animal.intervalDays)||7;
+      const last=new Date(animal.lastFed+"T12:00:00");
+      const msToStart=mStart-last;
+      const jumps=Math.floor(msToStart/(interval*86400000));
+      let cur=new Date(last);
+      if(jumps>0)cur.setDate(cur.getDate()+jumps*interval);
+      if(cur>mStart)cur.setDate(cur.getDate()-interval);
+      while(cur<=mEnd){
+        const ds=cur.getFullYear()+"-"+String(cur.getMonth()+1).padStart(2,"0")+"-"+String(cur.getDate()).padStart(2,"0");
+        if(ds>tStr&&cur>=mStart)addE(ds,animal,color,false);
+        cur=new Date(cur);cur.setDate(cur.getDate()+interval);
+      }
+    } else if(animal.scheduleType==="weekdays"&&animal.feedingDays&&animal.feedingDays.length){
+      const cur=new Date(year,month,1,12,0,0);
+      while(cur.getMonth()===month){
+        const ds=cur.getFullYear()+"-"+String(cur.getMonth()+1).padStart(2,"0")+"-"+String(cur.getDate()).padStart(2,"0");
+        if(ds>tStr&&animal.feedingDays.includes(cur.getDay()))addE(ds,animal,color,false);
+        cur.setDate(cur.getDate()+1);
+      }
+    }
+  });
+  return result;
+}
+function getWeekDates(base){
+  const d=new Date(base);d.setDate(d.getDate()-d.getDay());
+  return Array.from({length:7},(_,i)=>{const n=new Date(d);n.setDate(d.getDate()+i);return n;});
+}
+
+// ── FeedBadge ─────────────────────────────────────────────────────────────────
+function FeedBadge({animal,tr}){
+  const nf=nextFeedDate(animal);
+  const d=daysUntilDate(nf);
+  if(d===null)return React.createElement("span",{style:{color:"#8b949e",fontSize:12}},tr.noSchedule);
+  const color=d<0?"#f85149":d===0?"#ff9a00":d<=2?"#ff9a00":"#7ee787";
+  const label=d<0?tr.overdueLbl+" "+Math.abs(d)+tr.dUnit:d===0?tr.feedToday:tr.inDays+" "+d+tr.dUnit;
+  return React.createElement("span",{className:"badge",style:{background:color+"22",color}},label);
+}
+
+// ── FeederPicker ──────────────────────────────────────────────────────────────
+function FeederPicker({feeders,value,sizeValue,onChange,onSizeChange,tr}){
+  const [open,setOpen]=useState(false);
+  return React.createElement("div",null,
+    React.createElement("div",{className:"inp",style:{cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",userSelect:"none"},onClick:()=>setOpen(true)},
+      React.createElement("span",{style:{color:value?"#e6edf3":"#8b949e"}},value?(sizeValue?value+" — "+sizeValue:value):tr.selectFeeder),
+      React.createElement("span",{style:{color:"#8b949e",fontSize:12}},"▼")
+    ),
+    open&&React.createElement("div",{className:"overlay",onClick:()=>setOpen(false)},
+      React.createElement("div",{className:"modal",onClick:e=>e.stopPropagation()},
+        React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}},
+          React.createElement("h3",{style:{margin:0,color:"#7ee787",fontSize:16}},tr.feederType),
+          React.createElement("button",{style:{background:"none",border:"none",color:"#8b949e",cursor:"pointer",fontSize:22},onClick:()=>setOpen(false)},"×")
+        ),
+        React.createElement("div",{className:"modal-scroll"},
+          feeders.map(f=>React.createElement("div",{key:f.name},
+            React.createElement("div",{className:"feeder-option"+(value===f.name?" selected":""),onClick:()=>{onChange(f.name);onSizeChange("");if(!f.sizes||!f.sizes.length)setOpen(false);}},
+              React.createElement("span",null,f.sizes&&f.sizes.length?"🐭":"🦗"),
+              React.createElement("span",null,f.name),
+              value===f.name&&React.createElement("span",{style:{color:"#7ee787",marginLeft:"auto",fontSize:16}},"✓")
+            ),
+            value===f.name&&f.sizes&&f.sizes.length>0&&React.createElement("div",{style:{paddingLeft:16,paddingBottom:8}},
+              React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginBottom:6,textTransform:"uppercase"}},tr.sizeLbl),
+              React.createElement("div",{className:"size-grid"},
+                f.sizes.map(s=>React.createElement("div",{key:s,className:"size-chip"+(sizeValue===s?" active":""),onClick:e=>{e.stopPropagation();onSizeChange(s);setOpen(false);}},s))
+              )
+            )
+          ))
+        )
+      )
+    )
+  );
+}
+
+// ── ListManager ───────────────────────────────────────────────────────────────
+function ListManager({title,items,onSave,onClose,tr}){
+  const isFeeder=items.length>0&&typeof items[0]==="object";
+  const [list,setList]=useState(items.map(i=>typeof i==="object"?{...i,sizes:[...i.sizes]}:i));
+  const [draft,setDraft]=useState("");
+  const [editIdx,setEditIdx]=useState(null);
+  const [editVal,setEditVal]=useState("");
+  const [expandedIdx,setExpandedIdx]=useState(null);
+  const [sizeDraft,setSizeDraft]=useState("");
+  const [editSizeIdx,setEditSizeIdx]=useState(null);
+  const [editSizeVal,setEditSizeVal]=useState("");
+
+  function addItem(){const v=draft.trim();if(!v)return;const dup=isFeeder?list.some(i=>i.name===v):list.includes(v);if(dup)return;setList(isFeeder?[...list,{name:v,sizes:[]}]:[...list,v]);setDraft("");}
+  function removeItem(i){setList(list.filter((_,idx)=>idx!==i));if(expandedIdx===i)setExpandedIdx(null);}
+  function startEdit(i){setEditIdx(i);setEditVal(isFeeder?list[i].name:list[i]);}
+  function saveEdit(){const v=editVal.trim();if(!v)return;setList(list.map((item,i)=>i===editIdx?(isFeeder?{...item,name:v}:v):item));setEditIdx(null);}
+  function addSize(idx){const v=sizeDraft.trim();if(!v)return;setList(list.map((item,i)=>i===idx?{...item,sizes:[...item.sizes,v]}:item));setSizeDraft("");}
+  function removeSize(idx,si){setList(list.map((item,i)=>i===idx?{...item,sizes:item.sizes.filter((_,j)=>j!==si)}:item));}
+  function saveEditSize(idx,si){const v=editSizeVal.trim();if(!v)return;setList(list.map((item,i)=>i===idx?{...item,sizes:item.sizes.map((s,j)=>j===si?v:s)}:item));setEditSizeIdx(null);}
+
+  return React.createElement("div",{className:"overlay",onClick:onClose},
+    React.createElement("div",{className:"modal",style:{maxHeight:"88vh"},onClick:e=>e.stopPropagation()},
+      React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}},
+        React.createElement("h3",{style:{margin:0,color:"#7ee787",fontSize:16}},"✏️ "+title),
+        React.createElement("button",{style:{background:"none",border:"none",color:"#8b949e",cursor:"pointer",fontSize:22},onClick:onClose},"×")
+      ),
+      React.createElement("div",{style:{display:"flex",gap:8,marginBottom:12}},
+        React.createElement("input",{className:"inp",style:{flex:1},placeholder:tr.addNew,value:draft,onChange:e=>setDraft(e.target.value),onKeyDown:e=>e.key==="Enter"&&addItem()}),
+        React.createElement("button",{className:"btn btn-green btn-sm",onClick:addItem,disabled:!draft.trim()},tr.addBtn)
+      ),
+      React.createElement("div",{className:"modal-scroll"},
+        list.length===0&&React.createElement("div",{style:{color:"#8b949e",fontSize:13,textAlign:"center",padding:20}},tr.noItems),
+        list.map((item,i)=>{
+          const name=isFeeder?item.name:item;
+          return React.createElement("div",{key:i,style:{borderBottom:"1px solid #30363d"}},
+            React.createElement("div",{className:"list-item",style:{borderBottom:"none"}},
+              editIdx===i
+                ?React.createElement("input",{className:"inp",style:{flex:1,padding:"6px 10px"},value:editVal,onChange:e=>setEditVal(e.target.value),onKeyDown:e=>{if(e.key==="Enter")saveEdit();if(e.key==="Escape")setEditIdx(null);},autoFocus:true})
+                :React.createElement("span",{className:"list-item-name"},name),
+              editIdx===i
+                ?React.createElement("button",{className:"icon-btn",style:{color:"#7ee787"},onClick:saveEdit},"✓")
+                :React.createElement("button",{className:"icon-btn",style:{color:"#58a6ff"},onClick:()=>startEdit(i)},tr.editBtn),
+              editIdx===i
+                ?React.createElement("button",{className:"icon-btn",style:{color:"#8b949e"},onClick:()=>setEditIdx(null)},"✕")
+                :React.createElement("button",{className:"icon-btn",style:{color:"#f85149"},onClick:()=>removeItem(i)},"✕"),
+              isFeeder&&React.createElement("button",{className:"icon-btn",style:{color:"#8b949e",fontSize:16},onClick:()=>setExpandedIdx(expandedIdx===i?null:i)},expandedIdx===i?"▲":"▼")
+            ),
+            isFeeder&&expandedIdx===i&&React.createElement("div",{style:{paddingLeft:16,paddingBottom:10}},
+              React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginBottom:6,textTransform:"uppercase"}},tr.sizesLbl),
+              item.sizes.map((s,si)=>React.createElement("div",{key:si,style:{display:"flex",alignItems:"center",gap:6,marginBottom:4}},
+                editSizeIdx===si
+                  ?React.createElement("input",{className:"inp",style:{flex:1,padding:"5px 9px",fontSize:13},value:editSizeVal,onChange:e=>setEditSizeVal(e.target.value),onKeyDown:e=>{if(e.key==="Enter")saveEditSize(i,si);if(e.key==="Escape")setEditSizeIdx(null);},autoFocus:true})
+                  :React.createElement("span",{style:{flex:1,fontSize:13}},s),
+                editSizeIdx===si
+                  ?React.createElement("button",{className:"icon-btn",style:{color:"#7ee787"},onClick:()=>saveEditSize(i,si)},"✓")
+                  :React.createElement("button",{className:"icon-btn",style:{color:"#58a6ff"},onClick:()=>{setEditSizeIdx(si);setEditSizeVal(s);}},tr.editBtn),
+                editSizeIdx===si
+                  ?React.createElement("button",{className:"icon-btn",style:{color:"#8b949e"},onClick:()=>setEditSizeIdx(null)},"✕")
+                  :React.createElement("button",{className:"icon-btn",style:{color:"#f85149"},onClick:()=>removeSize(i,si)},"✕")
+              )),
+              React.createElement("div",{style:{display:"flex",gap:6,marginTop:6}},
+                React.createElement("input",{className:"inp",style:{flex:1,padding:"6px 10px",fontSize:13},placeholder:tr.addSize,value:sizeDraft,onChange:e=>setSizeDraft(e.target.value),onKeyDown:e=>e.key==="Enter"&&addSize(i)}),
+                React.createElement("button",{className:"btn btn-green btn-sm",style:{fontSize:12},onClick:()=>addSize(i),disabled:!sizeDraft.trim()},tr.addBtn)
+              )
+            )
+          );
+        })
+      ),
+      React.createElement("div",{style:{marginTop:14,display:"flex",justifyContent:"flex-end",gap:8}},
+        React.createElement("button",{className:"btn btn-ghost btn-sm",onClick:onClose},tr.cancel),
+        React.createElement("button",{className:"btn btn-green btn-sm",onClick:()=>{onSave(list);onClose();}},tr.saveLbl)
+      )
+    )
+  );
+}
+
+// ── App ───────────────────────────────────────────────────────────────────────
+function App(){
+  const [fbReady,setFbReady]=useState(!!window._fbReady);
+  const [animals,setAnimals]=useState([]);
+  const [animalTypes,setAnimalTypes]=useState(DEF_TYPES);
+  const [feeders,setFeeders]=useState(DEF_FEEDERS);
+  const [syncStatus,setSyncStatus]=useState("ok");
+  const [page,setPage]=useState("dash");
+  const [editId,setEditId]=useState(null);
+  const [form,setForm]=useState(EMPTY_FORM);
+  const [detailId,setDetailId]=useState(null);
+  const [detailTab,setDetailTab]=useState("info");
+  const [logModal,setLogModal]=useState(null);
+  const [logDate,setLogDate]=useState("");
+  const [logNote,setLogNote]=useState("");
+  const [logFeeders,setLogFeeders]=useState([{name:"",size:""}]);
+  const [logWeight,setLogWeight]=useState("");
+  const [logRefused,setLogRefused]=useState(false);
+  const [editLogId,setEditLogId]=useState(null);
+  const [undoStack,setUndoStack]=useState(null);
+  const [undoTimer,setUndoTimer]=useState(null);
+  const [showUndo,setShowUndo]=useState(false);
+  const [manageList,setManageList]=useState(null);
+  const [calView,setCalView]=useState("month");
+  const [calDate,setCalDate]=useState(new Date());
+  const [lang,setLang]=useState(()=>lsGet("rk-lang","en"));
+  const [currentUser,setCurrentUser]=useState(null);
+  const [users,setUsers]=useState(()=>lsGet("rk-users",DEF_USERS));
+  const [manageUsers,setManageUsers]=useState(false);
+  const [newUserDraft,setNewUserDraft]=useState("");
+  const fileRef=useRef(null);
+  const [notifPerm,setNotifPerm]=useState(()=>{
+    try{
+      if(typeof location!=='undefined'&&location.protocol==='file:')return'file';
+      if(typeof Notification==='undefined')return'unavailable';
+      return Notification.permission;
+    }catch{return'unavailable';}
+  });
+
+  // Derived from lang - all UI text and date arrays
+  const tr=TR[lang]||TR.en;
+  const isRTL=lang==="he";
+  const DAYS=lang==="he"?DAYS_HE:DAYS_EN;
+  const DAYS_FULL=lang==="he"?DAYS_FULL_HE:DAYS_FULL_EN;
+  const MONTHS_S=lang==="he"?MONTHS_S_HE:MONTHS_S_EN;
+  const MONTHS=lang==="he"?MONTHS_HE:MONTHS_EN;
+  const YEARS=Array.from({length:50},(_,i)=>new Date().getFullYear()-i);
+
+  function changeLang(l){setLang(l);lsSet("rk-lang",l);}
+  function saveUsers(list){setUsers(list);lsSet("rk-users",list);}
+  function addUser(){const v=newUserDraft.trim();if(!v||users.includes(v))return;saveUsers([...users,v]);setNewUserDraft("");}
+  function removeUser(u){if(users.length<=1)return;saveUsers(users.filter(x=>x!==u));if(currentUser===u)setCurrentUser(null);}
+
+  // In-page notification scheduler - fires when app is open
+  useEffect(()=>{
+    try{
+      if(!('Notification' in window)||notifPerm!=='granted')return;
+      const tStr=new Date().toISOString().split('T')[0];
+      const now=new Date();
+      animals.forEach(a=>{
+        try{
+          const nf=nextFeedDate(a);
+          const daysUntil=daysUntilDate(nf);
+          if(daysUntil===null)return;
+          const nfDs=nf?nf.getFullYear()+'-'+String(nf.getMonth()+1).padStart(2,'0')+'-'+String(nf.getDate()).padStart(2,'0'):'';
+          // TODAY or OVERDUE - fire at 14:00, once per day
+          if(daysUntil<=0){
+            const todayKey='rk-notified-'+a.id+'-duetoday-'+tStr;
+            let sent=false;
+            try{sent=!!localStorage.getItem(todayKey);}catch{}
+            if(!sent){
+              const fireAt=new Date();fireAt.setHours(14,0,0,0);
+              const ms=fireAt-now;
+              const body=daysUntil<0
+                ?typeEmoji(a.type)+' '+a.name+' is overdue by '+Math.abs(daysUntil)+' day'+(Math.abs(daysUntil)>1?'s':'')+'!'
+                :typeEmoji(a.type)+' Time to feed '+a.name+' ('+a.type+')';
+              const fire=()=>{try{new Notification('🦎 ReptileKeeper',{body,tag:'feed-'+a.id+'-due'});try{localStorage.setItem(todayKey,'1');}catch{}}catch{}};
+              if(ms<=0)fire();else setTimeout(fire,ms);
+            }
+          }
+          // TOMORROW - fire at 20:00
+          if(daysUntil===1){
+            const beforeKey='rk-notified-'+a.id+'-before-'+nfDs;
+            let sent=false;
+            try{sent=!!localStorage.getItem(beforeKey);}catch{}
+            if(!sent){
+              const fireAt=new Date();fireAt.setHours(20,0,0,0);
+              const ms=fireAt-now;
+              const fire=()=>{try{new Notification('🦎 ReptileKeeper',{body:typeEmoji(a.type)+' '+a.name+' needs feeding tomorrow!',tag:'feed-'+a.id+'-before'});try{localStorage.setItem(beforeKey,'1');}catch{}}catch{}};
+              if(ms<=0)fire();else setTimeout(fire,ms);
+            }
+          }
+        }catch{}
+      });
+    }catch{}
+  },[animals,notifPerm]);
+
+
+  function sendSchedule(animalList){
+    // Notifications handled by in-page scheduler via useEffect above
+  }
+
+  async function requestNotifPermission(){
+    try{
+      if(!('Notification' in window)){setNotifPerm('unavailable');return;}
+      const perm=await Notification.requestPermission();
+      setNotifPerm(perm);
+    }catch(e){setNotifPerm('unavailable');}
+  }
+
+  function sendTestNotif(){
+    try{
+      if(!('Notification' in window)||notifPerm!=='granted')return;
+      new Notification('🦎 ReptileKeeper',{body:'🐍 Test: Time to feed Nagini (Corn Snake)',tag:'rk-test'});
+    }catch{}
+  }
+
+  useEffect(()=>{
+    if(window._fbReady)return;
+    const h=()=>setFbReady(true);
+    document.addEventListener("fb-ready",h);
+    return()=>document.removeEventListener("fb-ready",h);
+  },[]);
+
+  useEffect(()=>{
+    if(!fbReady||!window._db)return;
+    const u1=window._db.subscribeAnimals(list=>setAnimals(list));
+    const u2=window._db.subscribeSettings(data=>{
+      if(data.animalTypes)setAnimalTypes(data.animalTypes);
+      if(data.feeders)setFeeders(data.feeders);
+    });
+    return()=>{u1();u2();};
+  },[fbReady]);
+
+  const animal=animals.find(a=>a.id===detailId);
+  const logCfg=Object.fromEntries(ALL_CATS.map(c=>[c.key,c]));
+
+  function sF(k,v){setForm(f=>({...f,[k]:v}));}
+  function toggleDay(d){setForm(f=>{const days=f.feedingDays||[];return{...f,feedingDays:days.includes(d)?days.filter(x=>x!==d):[...days,d]};});}
+
+  async function saveAnimal(){
+    if(!form.name.trim()||!form.type)return;
+    setSyncStatus("saving");
+    try{
+      const existing=animals.find(x=>x.id===editId);
+      const a=editId?{...form,id:editId,logs:existing?existing.logs:[]}:{...form,id:Date.now(),logs:[]};
+      await window._db.saveAnimal(a);
+      setSyncStatus("ok");
+    }catch(e){setSyncStatus("error");alert(tr.saveFailed);}
+    setForm(EMPTY_FORM);setEditId(null);
+    setPage(editId?"detail":"dash");
+  }
+
+  async function deleteAnimal(id){
+    if(!confirm(tr.delConfirm))return;
+    setSyncStatus("saving");
+    try{await window._db.deleteAnimal(id);setSyncStatus("ok");}
+    catch(e){setSyncStatus("error");}
+    setPage("dash");setDetailId(null);
+  }
+
+  function openEdit(a){const f={...a};delete f.logs;setForm(f);setEditId(a.id);setPage("form");}
+
+  async function saveSettings(newTypes,newFeeders){
+    setSyncStatus("saving");
+    try{await window._db.saveSettings({animalTypes:newTypes,feeders:newFeeders});setSyncStatus("ok");}
+    catch(e){setSyncStatus("error");}
+  }
+
+  function openLogModal(type, existingLog=null, targetAnimal=null){
+    const a=targetAnimal||animal;
+    setEditLogId(existingLog?existingLog.id:null);
+    setLogModal(type);
+    setLogRefused(existingLog?!!existingLog.refused:false);
+    setLogDate(existingLog?existingLog.date:todayStr());
+    setLogNote(existingLog?existingLog.note||"":"");
+    setLogWeight(existingLog?existingLog.weight||"":"");
+    if(existingLog&&existingLog.feeders&&existingLog.feeders.length>0){
+      setLogFeeders(existingLog.feeders);
+    } else if(existingLog&&existingLog.feederLabel){
+      setLogFeeders([{name:existingLog.feederLabel,size:""}]);
+    } else {
+      setLogFeeders([{name:a?a.feederName||"":"",size:a?a.feederSize||"":""}]);
+    }
+  }
+
+  function closeLogModal(){
+    setLogModal(null);setEditLogId(null);setLogDate("");setLogNote("");
+    setLogFeeders([{name:"",size:""}]);setLogWeight("");setLogRefused(false);
+  }
+
+  async function logEvent(){
+    const animal=animals.find(a=>a.id===detailId);
+    if(!logDate||!animal)return;
+    const isFeeding=logModal==="feeding";
+    const feeders=isFeeding?logFeeders.filter(f=>f.name):[];
+    const feederLabel=isFeeding?feeders.map(f=>f.size?f.name+" ("+f.size+")":f.name).join(", "):"";
+    const entry={
+      id:editLogId||Date.now(),
+      type:logModal,date:logDate,note:logNote,
+      feederLabel,feeders,weight:logModal==="weight"?logWeight:"",
+      refused:isFeeding?logRefused:false,user:currentUser||""
+    };
+    const existingLogs=animal.logs||[];
+    const newLogs=editLogId
+      ?existingLogs.map(l=>l.id===editLogId?entry:l)
+      :[entry,...existingLogs];
+    const u={...animal,logs:newLogs};
+    // Update last dates only if not editing an older entry or if it's the most recent
+    const sortedFeedings=newLogs.filter(l=>l.type==="feeding").sort((a,b)=>b.date.localeCompare(a.date));
+    if(logModal==="feeding"&&sortedFeedings.length>0)u.lastFed=sortedFeedings[0].date;
+    if(logModal==="water"){const s=newLogs.filter(l=>l.type==="water").sort((a,b)=>b.date.localeCompare(a.date));if(s.length)u.lastWater=s[0].date;}
+    if(logModal==="shed"){const s=newLogs.filter(l=>l.type==="shed").sort((a,b)=>b.date.localeCompare(a.date));if(s.length)u.lastShed=s[0].date;}
+    if(logModal==="weight"){const s=newLogs.filter(l=>l.type==="weight").sort((a,b)=>b.date.localeCompare(a.date));if(s.length){u.lastWeight=s[0].weight;}}
+    if(logModal==="clean"){const s=newLogs.filter(l=>l.type==="clean").sort((a,b)=>b.date.localeCompare(a.date));if(s.length)u.lastClean=s[0].date;}
+    if(logModal==="defecate"){const s=newLogs.filter(l=>l.type==="defecate").sort((a,b)=>b.date.localeCompare(a.date));if(s.length)u.lastDefecate=s[0].date;}
+    setSyncStatus("saving");
+    try{
+      await window._db.saveAnimal(u);
+      setSyncStatus("ok");
+      // Undo support (only for new logs, not edits)
+      if(!editLogId){
+        setUndoStack({animal:u,entry,prevAnimal:animal});
+        setShowUndo(true);
+        if(undoTimer)clearTimeout(undoTimer);
+        const t=setTimeout(()=>{setShowUndo(false);setUndoStack(null);},5000);
+        setUndoTimer(t);
+      }
+    }
+    catch(e){setSyncStatus("error");}
+    closeLogModal();
+  }
+
+  async function doUndo(){
+    if(!undoStack)return;
+    const{prevAnimal}=undoStack;
+    setSyncStatus("saving");
+    try{await window._db.saveAnimal(prevAnimal);setSyncStatus("ok");}
+    catch(e){setSyncStatus("error");}
+    setShowUndo(false);setUndoStack(null);
+    if(undoTimer)clearTimeout(undoTimer);
+  }
+
+  async function deleteLog(logId){
+    const animal=animals.find(a=>a.id===detailId);
+    if(!animal)return;
+    const newLogs=(animal.logs||[]).filter(l=>l.id!==logId);
+    const u={...animal,logs:newLogs};
+    // Recalculate all lastXxx fields from remaining logs
+    const latest=(type)=>newLogs.filter(l=>l.type===type).sort((a,b)=>b.date.localeCompare(a.date))[0];
+    const lf=latest("feeding");   u.lastFed=lf?lf.date:"";
+    const lw=latest("water");     u.lastWater=lw?lw.date:"";
+    const ls=latest("shed");      u.lastShed=ls?ls.date:"";
+    const lc=latest("clean");     u.lastClean=lc?lc.date:"";
+    const ld=latest("defecate");  u.lastDefecate=ld?ld.date:"";
+    const lwt=latest("weight");   u.lastWeight=lwt?lwt.weight:"";
+    setSyncStatus("saving");
+    try{await window._db.saveAnimal(u);setSyncStatus("ok");}
+    catch(e){setSyncStatus("error");}
+  }
+
+  function exportData(){
+    const data={animals,animalTypes,feeders};
+    const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");a.href=url;a.download="reptilekeeper-backup.json";a.click();URL.revokeObjectURL(url);
+  }
+  async function importData(e){
+    const file=e.target.files[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=async ev=>{
+      try{
+        const data=JSON.parse(ev.target.result);
+        setSyncStatus("saving");
+        if(data.animals){for(const a of data.animals)await window._db.saveAnimal(a);}
+        if(data.animalTypes||data.feeders)await window._db.saveSettings({animalTypes:data.animalTypes||animalTypes,feeders:data.feeders||feeders});
+        setSyncStatus("ok");alert(tr.importDone);
+      }catch{alert(tr.invalidBackup);}
+    };
+    reader.readAsText(file);
+  }
+
+  // ── User Picker ──────────────────────────────────────────────────────────────
+  if(!currentUser){
+    return React.createElement("div",{style:{minHeight:"100vh",background:"#0d1117",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:24}},
+      React.createElement("div",{style:{fontSize:56,marginBottom:8}},"🦎"),
+      React.createElement("div",{style:{fontSize:26,fontWeight:700,color:"#7ee787",marginBottom:4,fontFamily:"Georgia,serif"}},"ReptileKeeper"),
+      React.createElement("div",{style:{fontSize:14,color:"#8b949e",marginBottom:48,fontFamily:"Georgia,serif"}},"Who's taking care today?"),
+      React.createElement("div",{style:{width:"100%",maxWidth:340,display:"flex",flexDirection:"column",gap:12}},
+        users.map(u=>React.createElement("button",{key:u,
+          style:{width:"100%",padding:"18px 24px",borderRadius:14,background:"#161b22",border:"1px solid #30363d",
+            color:"#e6edf3",cursor:"pointer",fontFamily:"Georgia,serif",fontSize:18,fontWeight:700,
+            display:"flex",alignItems:"center",gap:14,transition:"border-color .15s"},
+          onClick:()=>setCurrentUser(u),
+          onMouseOver:e=>e.currentTarget.style.borderColor="#238636",
+          onMouseOut:e=>e.currentTarget.style.borderColor="#30363d"
+        },
+          React.createElement("div",{style:{width:44,height:44,borderRadius:"50%",background:"#238636",
+            display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,fontWeight:700,color:"#fff",flexShrink:0}},
+            u.charAt(0).toUpperCase()
+          ),
+          u
+        ))
+      ),
+      React.createElement("button",{style:{marginTop:32,background:"none",border:"none",color:"#8b949e",
+        cursor:"pointer",fontFamily:"Georgia,serif",fontSize:12,textDecoration:"underline"},
+        onClick:()=>setManageUsers(true)},"Manage users"),
+      manageUsers&&React.createElement("div",{className:"overlay",onClick:()=>setManageUsers(false)},
+        React.createElement("div",{className:"modal",onClick:e=>e.stopPropagation()},
+          React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}},
+            React.createElement("h3",{style:{margin:0,color:"#7ee787",fontSize:16}},"👤 Manage Users"),
+            React.createElement("button",{style:{background:"none",border:"none",color:"#8b949e",cursor:"pointer",fontSize:22},onClick:()=>setManageUsers(false)},"×")
+          ),
+          React.createElement("div",{style:{display:"flex",gap:8,marginBottom:14}},
+            React.createElement("input",{className:"inp",style:{flex:1},placeholder:"New user name...",
+              value:newUserDraft,onChange:e=>setNewUserDraft(e.target.value),
+              onKeyDown:e=>e.key==="Enter"&&addUser()}),
+            React.createElement("button",{className:"btn btn-green btn-sm",onClick:addUser,disabled:!newUserDraft.trim()},"Add")
+          ),
+          users.map(u=>React.createElement("div",{key:u,style:{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:"1px solid #30363d"}},
+            React.createElement("div",{style:{width:34,height:34,borderRadius:"50%",background:"#238636",
+              display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:700,color:"#fff",flexShrink:0}},
+              u.charAt(0).toUpperCase()
+            ),
+            React.createElement("span",{style:{flex:1,fontSize:15}},u),
+            users.length>1&&React.createElement("button",{className:"icon-btn",style:{color:"#f85149"},
+              onClick:()=>removeUser(u)},"✕")
+          ))
+        )
+      )
+    );
+  }
+
+  // ── Loading ──────────────────────────────────────────────────────────────────
+  if(!fbReady){
+    return React.createElement("div",{className:"loading"},
+      React.createElement("div",{style:{fontSize:48}},"🦎"),
+      React.createElement("div",{className:"spinner"}),
+      React.createElement("div",{style:{color:"#8b949e",fontSize:14}},tr.connecting)
+    );
+  }
+
+  function SyncDot(){
+    return React.createElement("span",{className:"sync-dot "+(syncStatus==="ok"?"sync-ok":syncStatus==="saving"?"sync-ing":"sync-err"),title:syncStatus});
+  }
+
+  function BottomNav(){
+    return React.createElement("div",{className:"bottom-nav"},
+      React.createElement("button",{className:"nav-btn"+(page==="settings"?" active":""),onClick:()=>setPage("settings")},
+        React.createElement("span",{className:"nav-icon"},"⚙️"),
+        React.createElement("span",null,tr.settings)
+      ),
+      React.createElement("button",{className:"nav-btn-main",onClick:()=>setPage("dash")},
+        React.createElement("span",{className:"nav-icon"},"🦎"),
+        React.createElement("span",null,tr.dashboard)
+      ),
+      React.createElement("button",{className:"nav-btn"+(page==="calendar"?" active":""),onClick:()=>setPage("calendar")},
+        React.createElement("span",{className:"nav-icon"},"📅"),
+        React.createElement("span",null,tr.calendar)
+      )
+    );
+  }
+
+  const pageProps={className:"page"+(isRTL?" rtl":""),dir:isRTL?"rtl":"ltr"};
+
+  // ── DASHBOARD ────────────────────────────────────────────────────────────────
+  if(page==="dash"){
+    // Group animals by feeding urgency
+    const overdue=[], today=[], tomorrow=[];
+    animals.forEach(a=>{
+      const d=daysUntilDate(nextFeedDate(a));
+      if(d===null)return;
+      if(d<0)overdue.push({a,d});
+      else if(d===0)today.push({a,d});
+      else if(d===1)tomorrow.push({a,d});
+    });
+    const hasAlerts=overdue.length>0||today.length>0||tomorrow.length>0;
+
+    return React.createElement("div",pageProps,
+      React.createElement("div",{className:"hdr"},
+        React.createElement("div",{className:"logo"},
+          React.createElement("span",{style:{fontSize:24}},"🦎"),
+          React.createElement("span",null,tr.appName),
+          React.createElement(SyncDot)
+        ),
+        currentUser&&React.createElement("div",{style:{position:"absolute",right:14,top:"50%",transform:"translateY(-50%)",
+          display:"flex",alignItems:"center",gap:6}},
+          React.createElement("div",{style:{width:26,height:26,borderRadius:"50%",background:"#238636",
+            display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,color:"#fff"}},
+            currentUser.charAt(0).toUpperCase()
+          ),
+          React.createElement("span",{style:{fontSize:12,color:"#8b949e",fontWeight:700}},currentUser)
+        )
+      ),
+      React.createElement("div",{className:"wrap"},
+        hasAlerts&&React.createElement("div",{style:{marginBottom:16,borderRadius:12,overflow:"hidden",border:"1px solid #30363d"}},
+          overdue.length>0&&React.createElement("div",{style:{background:"#f8514918",borderBottom:today.length||tomorrow.length?"1px solid #30363d":"none",padding:"12px 16px"}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:overdue.length?6:0}},
+              React.createElement("span",{style:{fontSize:16}},"🔴"),
+              React.createElement("span",{style:{fontWeight:700,color:"#f85149",fontSize:13}},lang==="he"?"באיחור":"Overdue")
+            ),
+            overdue.map(({a,d})=>React.createElement("div",{key:a.id,
+              style:{display:"flex",alignItems:"center",gap:10,padding:"8px 10px",marginBottom:4,background:"#f8514910",borderRadius:8,cursor:"pointer"},
+              onClick:()=>{setDetailId(a.id);setDetailTab("info");setPage("detail");}},
+              React.createElement("span",{style:{fontSize:20}},typeEmoji(a.type)),
+              React.createElement("span",{style:{fontWeight:700,flex:1}},a.name),
+              React.createElement("span",{style:{background:"#f8514922",color:"#f85149",borderRadius:20,padding:"3px 10px",fontSize:12,fontWeight:700}},
+                Math.abs(d)+" "+(lang==="he"?"ימים":"d")+" "+(lang==="he"?"באיחור":"overdue"))
+            ))
+          ),
+          today.length>0&&React.createElement("div",{style:{background:"#ff9a0018",borderBottom:tomorrow.length?"1px solid #30363d":"none",padding:"12px 16px"}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:6}},
+              React.createElement("span",{style:{fontSize:16}},"🟡"),
+              React.createElement("span",{style:{fontWeight:700,color:"#ff9a00",fontSize:13}},lang==="he"?"להאכיל היום":"Feed Today")
+            ),
+            today.map(({a})=>React.createElement("div",{key:a.id,
+              style:{display:"flex",alignItems:"center",gap:10,padding:"8px 10px",marginBottom:4,background:"#ff9a0010",borderRadius:8,cursor:"pointer"},
+              onClick:()=>{setDetailId(a.id);setDetailTab("info");setPage("detail");}},
+              React.createElement("span",{style:{fontSize:20}},typeEmoji(a.type)),
+              React.createElement("span",{style:{fontWeight:700,flex:1}},a.name),
+              React.createElement("span",{style:{background:"#ff9a0022",color:"#ff9a00",borderRadius:20,padding:"3px 10px",fontSize:12,fontWeight:700}},
+                lang==="he"?"היום!":"Today!")
+            ))
+          ),
+          tomorrow.length>0&&React.createElement("div",{style:{background:"#7ee78710",padding:"12px 16px"}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:6}},
+              React.createElement("span",{style:{fontSize:16}},"🟢"),
+              React.createElement("span",{style:{fontWeight:700,color:"#7ee787",fontSize:13}},lang==="he"?"להאכיל מחר":"Feed Tomorrow")
+            ),
+            tomorrow.map(({a})=>React.createElement("div",{key:a.id,
+              style:{display:"flex",alignItems:"center",gap:10,padding:"8px 10px",marginBottom:4,background:"#7ee78710",borderRadius:8,cursor:"pointer"},
+              onClick:()=>{setDetailId(a.id);setDetailTab("info");setPage("detail");}},
+              React.createElement("span",{style:{fontSize:20}},typeEmoji(a.type)),
+              React.createElement("span",{style:{fontWeight:700,flex:1}},a.name),
+              React.createElement("span",{style:{background:"#7ee78722",color:"#7ee787",borderRadius:20,padding:"3px 10px",fontSize:12,fontWeight:700}},
+                lang==="he"?"מחר":"Tomorrow")
+            ))
+          )
+        ),
+        animals.length===0
+          ?React.createElement("div",{className:"empty"},
+              React.createElement("div",{className:"empty-icon"},"🐍"),
+              React.createElement("div",{className:"empty-title"},tr.noAnimals),
+              React.createElement("div",{style:{marginBottom:22}},tr.addFirst),
+              React.createElement("button",{className:"btn btn-green",onClick:()=>{setForm(EMPTY_FORM);setEditId(null);setPage("form");}},tr.addFirstBtn)
+            )
+          :React.createElement("div",null,
+              React.createElement("div",{className:"sec",style:{marginBottom:12}},tr.myAnimals+" ("+animals.length+")"),
+              React.createElement("div",{className:"grid"},
+                animals.map(a=>React.createElement("div",{key:a.id,className:"animal-card",onClick:()=>{setDetailId(a.id);setDetailTab("info");setPage("detail");}},
+                  React.createElement("div",{style:{fontSize:28,marginBottom:4}},typeEmoji(a.type)),
+                  React.createElement("div",{style:{fontWeight:700,fontSize:15,marginBottom:2}},a.name),
+                  React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginBottom:8}},a.type+(a.morph?" · "+a.morph:"")),
+                  a.birthMonth&&a.birthYear&&React.createElement("div",{style:{marginBottom:8}},
+                    React.createElement("span",{className:"badge",style:{background:"#23863633",color:"#7ee787",fontSize:11}},calcAge(a.birthMonth,a.birthYear))
+                  ),
+                  React.createElement("hr",{className:"divider",style:{margin:"8px 0"}}),
+                  React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginBottom:4}},tr.nextFeed),
+                  React.createElement(FeedBadge,{animal:a,tr})
+                ))
+              ),
+              (()=>{
+                const allLogs=[];
+                animals.forEach(a=>{
+                  (a.logs||[]).forEach(l=>allLogs.push({...l,animalName:a.name,animalType:a.type,animalId:a.id}));
+                });
+                allLogs.sort((a,b)=>b.date.localeCompare(a.date)||(b.id-a.id));
+                const recent=allLogs.slice(0,10);
+                if(!recent.length)return null;
+                const logCfgLocal=Object.fromEntries(ALL_CATS.map(c=>[c.key,c]));
+                return React.createElement("div",{style:{marginTop:20}},
+                  React.createElement("div",{className:"sec",style:{marginBottom:10}},"⚡ "+(lang==="he"?"פעילות אחרונה":"Recent Activity")),
+                  React.createElement("div",{style:{background:"#161b22",border:"1px solid #30363d",borderRadius:12,overflow:"hidden"}},
+                    recent.map((log,i)=>{
+                      const cfg=logCfgLocal[log.type];
+                      const feeders=log.feeders&&log.feeders.filter(f=>f.name).length>0?log.feeders:log.feederLabel?[{name:log.feederLabel}]:[];
+                      return React.createElement("div",{key:log.id,
+                        style:{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",
+                          borderBottom:i<recent.length-1?"1px solid #30363d":"none",cursor:"pointer"},
+                        onClick:()=>{setDetailId(log.animalId);setDetailTab("logs");setPage("detail");}},
+                        React.createElement("span",{style:{fontSize:18,flexShrink:0}},cfg&&cfg.icon),
+                        React.createElement("div",{style:{flex:1,minWidth:0}},
+                          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}},
+                            React.createElement("span",{style:{fontWeight:700,fontSize:13,color:cfg&&cfg.color}},typeEmoji(log.animalType)+" "+log.animalName),
+                            log.refused&&React.createElement("span",{style:{background:"#f8514922",color:"#f85149",borderRadius:20,padding:"1px 7px",fontSize:10,fontWeight:700}},"❌ Refused"),
+                            log.weight&&React.createElement("span",{style:{fontSize:12,color:"#ffa657"}},"· "+log.weight+"g")
+                          ),
+                          feeders.length>0&&React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginTop:1}},
+                            feeders.map(f=>f.size?f.name+" ("+f.size+")":f.name||f).join(", ")
+                          ),
+                          log.note&&React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginTop:1,fontStyle:"italic"}},'"'+log.note+'"'),
+                          log.user&&React.createElement("span",{style:{fontSize:11,color:"#8b949e",opacity:.5,fontStyle:"italic"}},log.user)
+                        ),
+                        React.createElement("span",{style:{fontSize:11,color:"#8b949e",flexShrink:0}},fmtDate(log.date,MONTHS_S))
+                      );
+                    })
+                  )
+                );
+              })()
+            )
+      ),
+      React.createElement("button",{className:"fab",onClick:()=>{setForm(EMPTY_FORM);setEditId(null);setPage("form");}},"＋"),
+      React.createElement(BottomNav)
+    );
+  }
+
+  // ── SETTINGS ─────────────────────────────────────────────────────────────────
+  if(page==="settings"){
+    return React.createElement("div",pageProps,
+      React.createElement("div",{className:"hdr"},
+        React.createElement("div",{className:"logo"},
+          React.createElement("span",{style:{fontSize:24}},"🦎"),
+          React.createElement("span",null,tr.appName),
+          React.createElement(SyncDot)
+        ),
+        currentUser&&React.createElement("div",{style:{position:"absolute",right:14,top:"50%",transform:"translateY(-50%)",
+          display:"flex",alignItems:"center",gap:6}},
+          React.createElement("div",{style:{width:26,height:26,borderRadius:"50%",background:"#238636",
+            display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,color:"#fff"}},
+            currentUser.charAt(0).toUpperCase()
+          ),
+          React.createElement("span",{style:{fontSize:12,color:"#8b949e",fontWeight:700}},currentUser)
+        )
+      ),
+      React.createElement("div",{className:"wrap"},
+        React.createElement("div",{className:"sec",style:{marginBottom:14}},tr.manageLists),
+        React.createElement("div",{className:"settings-item",onClick:()=>setManageList("types")},
+          React.createElement("div",{style:{display:"flex",alignItems:"center"}},
+            React.createElement("span",{className:"settings-icon"},"🦎"),
+            React.createElement("div",null,
+              React.createElement("div",{className:"settings-label"},tr.speciesTypes),
+              React.createElement("div",{className:"settings-sub"},animalTypes.length+" "+tr.speciesCount)
+            )
+          )
+              (()=>{
+                // Build recent activity feed across all animals
+                const allLogs=[];
+                animals.forEach(a=>{
+                  (a.logs||[]).forEach(l=>allLogs.push({...l,animalName:a.name,animalType:a.type,animalId:a.id}));
+                });
+                allLogs.sort((a,b)=>b.date.localeCompare(a.date)||(b.id-a.id));
+                const recent=allLogs.slice(0,10);
+                return recent.length>0&&React.createElement("div",{style:{marginBottom:20,marginTop:20}},
+                  React.createElement("div",{className:"sec",style:{marginBottom:10}},"⚡ "+(lang==="he"?"פעילות אחרונה":"Recent Activity")),
+                  React.createElement("div",{style:{background:"#161b22",border:"1px solid #30363d",borderRadius:12,overflow:"hidden"}},
+                    recent.map((log,i)=>{
+                      const cfg=logCfg[log.type];
+                      const feeders=log.feeders&&log.feeders.filter(f=>f.name).length>0?log.feeders:log.feederLabel?[{name:log.feederLabel}]:[];
+                      return React.createElement("div",{key:log.id,
+                        style:{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",
+                          borderBottom:i<recent.length-1?"1px solid #30363d":"none",cursor:"pointer"},
+                        onClick:()=>{setDetailId(log.animalId);setDetailTab("logs");setPage("detail");}},
+                        React.createElement("span",{style:{fontSize:18,flexShrink:0}},cfg&&cfg.icon),
+                        React.createElement("div",{style:{flex:1,minWidth:0}},
+                          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}},
+                            React.createElement("span",{style:{fontWeight:700,fontSize:13,color:cfg&&cfg.color}},typeEmoji(log.animalType)+" "+log.animalName),
+                            log.refused&&React.createElement("span",{style:{background:"#f8514922",color:"#f85149",borderRadius:20,padding:"1px 7px",fontSize:10,fontWeight:700}},"❌ Refused"),
+                            log.weight&&React.createElement("span",{style:{fontSize:12,color:"#ffa657"}},"· "+log.weight+"g")
+                          ),
+                          feeders.length>0&&React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginTop:1}},
+                            feeders.map(f=>f.size?f.name+" ("+f.size+")":f.name||f).join(", ")
+                          ),
+                          log.note&&React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginTop:1,fontStyle:"italic"}},'"'+log.note+'"'),
+                          log.user&&React.createElement("span",{style:{fontSize:11,color:"#8b949e",opacity:.5,fontStyle:"italic"}},log.user)
+                        ),
+                        React.createElement("span",{style:{fontSize:11,color:"#8b949e",flexShrink:0}},fmtDate(log.date,MONTHS_S))
+                      );
+                    })
+                  )
+                );
+              })(),
+          React.createElement("span",{style:{color:"#8b949e",fontSize:18}},"›")
+        ),
+        React.createElement("div",{className:"settings-item",onClick:()=>setManageList("feeders")},
+          React.createElement("div",{style:{display:"flex",alignItems:"center"}},
+            React.createElement("span",{className:"settings-icon"},"🍖"),
+            React.createElement("div",null,
+              React.createElement("div",{className:"settings-label"},tr.feederOpts),
+              React.createElement("div",{className:"settings-sub"},feeders.length+" "+tr.feedersCount)
+            )
+          ),
+          React.createElement("span",{style:{color:"#8b949e",fontSize:18}},"›")
+        ),
+        React.createElement("hr",{className:"divider"}),
+        React.createElement("div",{className:"sec",style:{marginBottom:14}},tr.dataBackup),
+        React.createElement("div",{className:"settings-item",onClick:exportData},
+          React.createElement("div",{style:{display:"flex",alignItems:"center"}},
+            React.createElement("span",{className:"settings-icon"},"📤"),
+            React.createElement("div",null,
+              React.createElement("div",{className:"settings-label"},tr.exportLbl),
+              React.createElement("div",{className:"settings-sub"},tr.exportSub)
+            )
+          ),
+          React.createElement("span",{style:{color:"#8b949e",fontSize:18}},"›")
+        ),
+        React.createElement("div",{className:"settings-item",onClick:()=>fileRef.current&&fileRef.current.click()},
+          React.createElement("div",{style:{display:"flex",alignItems:"center"}},
+            React.createElement("span",{className:"settings-icon"},"📥"),
+            React.createElement("div",null,
+              React.createElement("div",{className:"settings-label"},tr.importLbl),
+              React.createElement("div",{className:"settings-sub"},tr.importSub)
+            )
+          ),
+          React.createElement("span",{style:{color:"#8b949e",fontSize:18}},"›")
+        ),
+        React.createElement("input",{ref:fileRef,type:"file",accept:".json",style:{display:"none"},onChange:importData}),
+        React.createElement("hr",{className:"divider"}),
+        React.createElement("div",{className:"sec",style:{marginBottom:14}},"🔔 Notifications"),
+        React.createElement("div",{className:"card",style:{marginBottom:14}},
+          (notifPerm==='unavailable'||notifPerm==='file')
+            ?React.createElement("div",{style:{color:"#8b949e",fontSize:13}},notifPerm==='file'?"Open the app via your Netlify URL to use notifications (not from a local file).":"Push notifications are not supported on this browser.")
+            :notifPerm==='granted'
+              ?React.createElement("div",null,
+                  React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:12}},
+                    React.createElement("span",{style:{fontSize:20}},"✅"),
+                    React.createElement("div",null,
+                      React.createElement("div",{style:{fontWeight:700,fontSize:14,color:"#7ee787"}},"Notifications enabled"),
+                      React.createElement("div",{style:{fontSize:12,color:"#8b949e"}},"Day before at 20:00 · Feeding day at 14:00")
+                    )
+                  ),
+                  React.createElement("button",{className:"btn btn-ghost btn-sm",style:{width:"100%"},onClick:sendTestNotif},"🧪 Send test notification")
+                )
+              :React.createElement("div",null,
+                  React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:12}},
+                    React.createElement("span",{style:{fontSize:20}},"🔕"),
+                    React.createElement("div",null,
+                      React.createElement("div",{style:{fontWeight:700,fontSize:14}},notifPerm==='denied'?"Notifications blocked":"Enable notifications"),
+                      React.createElement("div",{style:{fontSize:12,color:"#8b949e"}},
+                        notifPerm==='denied'
+                          ?"Go to Chrome Settings → Site Settings → Notifications to allow"
+                          :"Get reminders the day before (20:00) and day of feeding (14:00)"
+                      )
+                    )
+                  ),
+                  notifPerm!=='denied'&&React.createElement("button",{className:"btn btn-green",style:{width:"100%"},onClick:requestNotifPermission},"🔔 Enable Notifications")
+                )
+        ),
+        React.createElement("hr",{className:"divider"}),
+        React.createElement("div",{className:"sec",style:{marginBottom:14}},"👤 Users"),
+        React.createElement("div",{style:{marginBottom:10}},
+          React.createElement("div",{style:{fontSize:13,color:"#8b949e",marginBottom:10}},
+            "Current user: ",React.createElement("span",{style:{color:"#7ee787",fontWeight:700}},currentUser||"None")
+          ),
+          React.createElement("div",{style:{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10}},
+            users.map(u=>React.createElement("button",{key:u,
+              className:"btn"+(currentUser===u?" btn-green":" btn-ghost"),
+              style:{fontSize:13,padding:"8px 16px"},
+              onClick:()=>setCurrentUser(u)
+            },u))
+          ),
+          React.createElement("div",{style:{display:"flex",gap:8}},
+          React.createElement("button",{className:"btn btn-ghost btn-sm",style:{fontSize:12},
+            onClick:()=>setManageUsers(true)},"⚙️ Manage users"),
+          React.createElement("button",{className:"btn btn-ghost btn-sm",style:{fontSize:12,color:"#58a6ff",borderColor:"#58a6ff44"},
+            onClick:()=>setCurrentUser(null)},"🔄 Switch user")
+        )
+        ),
+        manageUsers&&React.createElement("div",{className:"overlay",onClick:()=>setManageUsers(false)},
+          React.createElement("div",{className:"modal",onClick:e=>e.stopPropagation()},
+            React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}},
+              React.createElement("h3",{style:{margin:0,color:"#7ee787",fontSize:16}},"👤 Manage Users"),
+              React.createElement("button",{style:{background:"none",border:"none",color:"#8b949e",cursor:"pointer",fontSize:22},onClick:()=>setManageUsers(false)},"×")
+            ),
+            React.createElement("div",{style:{display:"flex",gap:8,marginBottom:14}},
+              React.createElement("input",{className:"inp",style:{flex:1},placeholder:"New user name...",
+                value:newUserDraft,onChange:e=>setNewUserDraft(e.target.value),
+                onKeyDown:e=>e.key==="Enter"&&addUser()}),
+              React.createElement("button",{className:"btn btn-green btn-sm",onClick:addUser,disabled:!newUserDraft.trim()},"Add")
+            ),
+            users.map(u=>React.createElement("div",{key:u,style:{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:"1px solid #30363d"}},
+              React.createElement("div",{style:{width:34,height:34,borderRadius:"50%",background:currentUser===u?"#238636":"#21262d",
+                display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:700,color:"#fff",flexShrink:0}},
+                u.charAt(0).toUpperCase()
+              ),
+              React.createElement("span",{style:{flex:1,fontSize:15}},u+(currentUser===u?" ✓":"")),
+              users.length>1&&React.createElement("button",{className:"icon-btn",style:{color:"#f85149"},
+                onClick:()=>removeUser(u)},"✕")
+            ))
+          )
+        ),
+        React.createElement("hr",{className:"divider"}),
+        React.createElement("div",{className:"sec",style:{marginBottom:14}},tr.language),
+        React.createElement("div",{style:{display:"flex",gap:10}},
+          React.createElement("button",{className:"btn"+(lang==="en"?" btn-green":" btn-ghost"),style:{flex:1,fontSize:15},onClick:()=>changeLang("en")},"🇬🇧 "+tr.english),
+          React.createElement("button",{className:"btn"+(lang==="he"?" btn-green":" btn-ghost"),style:{flex:1,fontSize:15},onClick:()=>changeLang("he")},"🇮🇱 "+tr.hebrew)
+        )
+      ),
+      manageList==="types"&&React.createElement(ListManager,{title:tr.speciesTypes,items:animalTypes,onSave:newList=>{setAnimalTypes(newList);saveSettings(newList,feeders);},onClose:()=>setManageList(null),tr}),
+      manageList==="feeders"&&React.createElement(ListManager,{title:tr.feederOpts,items:feeders,onSave:newList=>{setFeeders(newList);saveSettings(animalTypes,newList);},onClose:()=>setManageList(null),tr}),
+      React.createElement(BottomNav)
+    );
+  }
+
+  // ── CALENDAR ──────────────────────────────────────────────────────────────────
+  if(page==="calendar"){
+    const year=calDate.getFullYear();
+    const month=calDate.getMonth();
+    const feedDates=getFeedDates(animals,year,month);
+    const todStr=todayStr();
+
+    function MonthView(){
+      const firstDay=new Date(year,month,1).getDay();
+      const daysInMonth=new Date(year,month+1,0).getDate();
+      const cells=[];
+      for(let i=0;i<firstDay;i++)cells.push(null);
+      for(let d=1;d<=daysInMonth;d++)cells.push(d);
+      return React.createElement("div",null,
+        React.createElement("div",{className:"cal-header"},
+          React.createElement("button",{className:"cal-nav",onClick:()=>{const d=new Date(calDate);d.setMonth(d.getMonth()-1);setCalDate(d);}},"‹"),
+          React.createElement("div",{style:{fontWeight:700,fontSize:16}},MONTHS[month]+" "+year),
+          React.createElement("button",{className:"cal-nav",onClick:()=>{const d=new Date(calDate);d.setMonth(d.getMonth()+1);setCalDate(d);}},"›")
+        ),
+        React.createElement("div",{className:"cal-grid"},
+          DAYS.map(d=>React.createElement("div",{key:d,className:"cal-day-name"},d)),
+          cells.map((d,i)=>{
+            if(!d)return React.createElement("div",{key:"e"+i,style:{minHeight:44}});
+            const ds=year+"-"+String(month+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");
+            const feedings=feedDates[ds]||[];
+            return React.createElement("div",{key:ds,className:"cal-day"+(ds===todStr?" today":"")},
+              React.createElement("div",{className:"cal-num"},d),
+              feedings.length>0&&React.createElement("div",{className:"cal-dot-wrap"},
+                feedings.slice(0,4).map((f,fi)=>React.createElement("div",{key:fi,className:"cal-dot",
+                  style:{background:f.actual?f.color:"transparent",border:"2px solid "+f.color,opacity:f.actual?1:0.6},
+                  title:f.animal.name+(f.actual?" (✓)":"")
+                }))
+              )
+            );
+          })
+        ),
+        animals.length>0&&React.createElement("div",{style:{marginTop:8}},
+          React.createElement("div",{className:"sec",style:{marginBottom:8}},tr.legendLbl),
+          React.createElement("div",{style:{display:"flex",gap:14,marginBottom:10}},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:5,fontSize:12,color:"#8b949e"}},
+              React.createElement("div",{style:{width:10,height:10,borderRadius:"50%",background:"#7ee787"}}),tr.actualFeed
+            ),
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:5,fontSize:12,color:"#8b949e"}},
+              React.createElement("div",{style:{width:10,height:10,borderRadius:"50%",background:"transparent",border:"2px solid #7ee787",opacity:.6}}),tr.scheduledLbl
+            )
+          ),
+          React.createElement("div",{style:{display:"flex",flexWrap:"wrap",gap:8}},
+            animals.map((a,i)=>React.createElement("div",{key:a.id,style:{display:"flex",alignItems:"center",gap:5,fontSize:12}},
+              React.createElement("div",{style:{width:10,height:10,borderRadius:"50%",background:ANIMAL_COLORS[i%ANIMAL_COLORS.length]}}),
+              React.createElement("span",{style:{color:"#c9d1d9"}},a.name)
+            ))
+          )
+        )
+      );
+    }
+
+    function WeekView(){
+      const weekDates=getWeekDates(calDate);
+      return React.createElement("div",null,
+        React.createElement("div",{className:"cal-header"},
+          React.createElement("button",{className:"cal-nav",onClick:()=>{const d=new Date(calDate);d.setDate(d.getDate()-7);setCalDate(d);}},"‹"),
+          React.createElement("div",{style:{fontWeight:700,fontSize:14}},
+            fmtDate(weekDates[0].toISOString().split("T")[0],MONTHS_S)+" – "+fmtDate(weekDates[6].toISOString().split("T")[0],MONTHS_S)
+          ),
+          React.createElement("button",{className:"cal-nav",onClick:()=>{const d=new Date(calDate);d.setDate(d.getDate()+7);setCalDate(d);}},"›")
+        ),
+        React.createElement("div",{className:"week-row"},
+          weekDates.map(date=>{
+            const ds=date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0");
+            const feedings=feedDates[ds]||[];
+            const isToday=ds===todStr;
+            return React.createElement("div",{key:ds,className:"week-day"+(isToday?" today":"")},
+              React.createElement("div",{className:"week-day-title"},DAYS_FULL[date.getDay()]+" "+date.getDate()+" "+MONTHS_S[date.getMonth()]),
+              feedings.length===0
+                ?React.createElement("span",{style:{fontSize:12,color:"#8b949e"}},tr.noSchedule)
+                :React.createElement("div",{style:{display:"flex",flexWrap:"wrap"}},
+                    feedings.map((f,fi)=>{
+                      const ci=animals.findIndex(a=>a.id===f.animal.id);
+                      const color=ANIMAL_COLORS[ci%ANIMAL_COLORS.length];
+                      return React.createElement("span",{key:fi,className:"week-feed-pill",
+                        style:{background:color+(f.actual?"33":"11"),color,border:"1px solid "+color+(f.actual?"55":"22")}},
+                        typeEmoji(f.animal.type)+" "+f.animal.name+(f.actual?" ✓":" ·")
+                      );
+                    })
+                  )
+            );
+          })
+        )
+      );
+    }
+
+    return React.createElement("div",pageProps,
+      React.createElement("div",{className:"hdr"},
+        React.createElement("div",{className:"logo"},
+          React.createElement("span",{style:{fontSize:24}},"🦎"),
+          React.createElement("span",null,tr.appName),
+          React.createElement(SyncDot)
+        ),
+        currentUser&&React.createElement("div",{style:{position:"absolute",right:14,top:"50%",transform:"translateY(-50%)",
+          display:"flex",alignItems:"center",gap:6}},
+          React.createElement("div",{style:{width:26,height:26,borderRadius:"50%",background:"#238636",
+            display:"flex",alignItems:"center",justifyContent:"center",fontSize:11,fontWeight:700,color:"#fff"}},
+            currentUser.charAt(0).toUpperCase()
+          ),
+          React.createElement("span",{style:{fontSize:12,color:"#8b949e",fontWeight:700}},currentUser)
+        )
+      ),
+      React.createElement("div",{className:"wrap"},
+        React.createElement("div",{style:{display:"flex",gap:8,marginBottom:16}},
+          React.createElement("button",{className:"btn"+(calView==="month"?" btn-green":" btn-ghost"),style:{flex:1},onClick:()=>setCalView("month")},tr.monthly),
+          React.createElement("button",{className:"btn"+(calView==="week"?" btn-green":" btn-ghost"),style:{flex:1},onClick:()=>setCalView("week")},tr.weekly)
+        ),
+        animals.length===0
+          ?React.createElement("div",{className:"empty"},
+              React.createElement("div",{className:"empty-icon"},"📅"),
+              React.createElement("div",{className:"empty-title"},tr.noAnimals),
+              React.createElement("div",null,tr.noAnimalsCal)
+            )
+          :(calView==="month"?React.createElement(MonthView):React.createElement(WeekView))
+      ),
+      React.createElement(BottomNav)
+    );
+  }
+
+  // ── FORM ──────────────────────────────────────────────────────────────────────
+  if(page==="form"){
+    return React.createElement("div",pageProps,
+      React.createElement("div",{className:"hdr-back"},
+        React.createElement("button",{className:"btn btn-ghost btn-sm",onClick:()=>{setPage(editId?"detail":"dash");setEditId(null);}},tr.back),
+        React.createElement("div",{className:"logo",style:{fontSize:15}},
+          React.createElement("span",{style:{fontSize:20}},"🦎"),
+          React.createElement("span",null,tr.appName)
+        )
+      ),
+      React.createElement("div",{className:"wrap"},
+        React.createElement("div",{className:"card"},
+          React.createElement("h2",{style:{margin:"0 0 20px",color:"#7ee787",fontSize:17}},editId?tr.editAnimal:tr.addAnimal),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.speciesType),
+            React.createElement("select",{className:"inp",value:form.type,onChange:e=>sF("type",e.target.value)},
+              React.createElement("option",{value:""},tr.selectType),
+              animalTypes.map(tp=>React.createElement("option",{key:tp},tp))
+            ),
+            React.createElement("button",{className:"link-btn",style:{marginTop:6},onClick:()=>setManageList("types")},tr.manageSpecies)
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.morph),
+            React.createElement("input",{className:"inp",placeholder:tr.morphPh,value:form.morph||"",onChange:e=>sF("morph",e.target.value)})
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.nameLbl),
+            React.createElement("input",{className:"inp",placeholder:tr.namePh,value:form.name,onChange:e=>sF("name",e.target.value)})
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.dob),
+            React.createElement("div",{className:"row"},
+              React.createElement("select",{className:"inp",style:{flex:1},value:form.birthMonth,onChange:e=>sF("birthMonth",e.target.value)},
+                React.createElement("option",{value:""},tr.monthLbl),
+                MONTHS_S.map((m,i)=>React.createElement("option",{key:i,value:i+1},m))
+              ),
+              React.createElement("select",{className:"inp",style:{flex:1},value:form.birthYear,onChange:e=>sF("birthYear",e.target.value)},
+                React.createElement("option",{value:""},tr.yearLbl),
+                YEARS.map(y=>React.createElement("option",{key:y},y))
+              )
+            )
+          ),
+          React.createElement("hr",{className:"divider"}),
+          React.createElement("div",{className:"sec"},"🍖 "+tr.feederType.split(" ")[0]),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.feederType),
+            React.createElement(FeederPicker,{feeders,value:form.feederName||"",sizeValue:form.feederSize||"",onChange:v=>sF("feederName",v),onSizeChange:v=>sF("feederSize",v),tr}),
+            React.createElement("button",{className:"link-btn",style:{marginTop:6},onClick:()=>setManageList("feeders")},tr.manageFeeders)
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.scheduleType),
+            React.createElement("div",{style:{display:"flex",gap:8,marginBottom:10}},
+              ["days","weekdays"].map(tp=>React.createElement("button",{key:tp,className:"btn "+(form.scheduleType===tp?"btn-green":"btn-ghost"),style:{flex:1,fontSize:13},onClick:()=>sF("scheduleType",tp)},tp==="days"?tr.everyXDays:tr.daysOfWeek))
+            ),
+            form.scheduleType==="days"
+              ?React.createElement("div",{style:{display:"flex",alignItems:"center",gap:10}},
+                  React.createElement("input",{className:"inp",style:{width:70},type:"number",min:"1",max:"365",value:form.intervalDays,onChange:e=>sF("intervalDays",e.target.value)}),
+                  React.createElement("span",{style:{color:"#8b949e",fontSize:13}},tr.daysBetween)
+                )
+              :React.createElement("div",{style:{display:"flex",gap:6,flexWrap:"wrap"}},
+                  DAYS_EN.map((d,i)=>React.createElement("button",{key:i,className:"day-btn"+((form.feedingDays||[]).includes(i)?" active":""),onClick:()=>toggleDay(i)},d))
+                )
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.lastFed),
+            React.createElement("input",{className:"inp",type:"date",value:form.lastFed,onChange:e=>sF("lastFed",e.target.value)})
+          ),
+          React.createElement("hr",{className:"divider"}),
+          React.createElement("div",{className:"sec"},tr.maintenance),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.lastWaterLbl),
+            React.createElement("input",{className:"inp",type:"date",value:form.lastWater,onChange:e=>sF("lastWater",e.target.value)})
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.lastShedLbl),
+            React.createElement("input",{className:"inp",type:"date",value:form.lastShed,onChange:e=>sF("lastShed",e.target.value)})
+          ),
+          React.createElement("div",{className:"grp"},
+            React.createElement("label",{className:"lbl"},tr.notesLbl),
+            React.createElement("textarea",{className:"inp",style:{minHeight:72,resize:"vertical"},placeholder:tr.notesPh,value:form.notes,onChange:e=>sF("notes",e.target.value)})
+          ),
+          React.createElement("hr",{className:"divider"}),
+          React.createElement("div",{className:"sec"},tr.trackCats),
+          React.createElement("div",{style:{fontSize:12,color:"#8b949e",marginBottom:10}},tr.trackHint),
+          React.createElement("div",{className:"track-grid"},
+            ALL_CATS.map(cat=>{
+              const tracking=form.tracking||DEF_TRACKING;
+              const isActive=tracking.includes(cat.key);
+              const catLabel=lang==="he"?cat.he:cat.en;
+              return React.createElement("div",{key:cat.key,
+                className:"track-toggle"+(isActive?" active":"")+(cat.always?" always":""),
+                onClick:()=>{if(cat.always)return;sF("tracking",isActive?tracking.filter(k=>k!==cat.key):[...tracking,cat.key]);}
+              },
+                React.createElement("span",{className:"track-toggle-icon"},cat.icon),
+                React.createElement("span",{className:"track-toggle-label",style:{color:isActive?cat.color:"#8b949e"}},catLabel),
+                React.createElement("div",{className:"track-toggle-check"},isActive?"✓":"")
+              );
+            })
+          ),
+          React.createElement("div",{style:{display:"flex",gap:10,justifyContent:"flex-end",paddingTop:16}},
+            React.createElement("button",{className:"btn btn-ghost",onClick:()=>{setPage(editId?"detail":"dash");setEditId(null);}},tr.cancel),
+            React.createElement("button",{className:"btn btn-green",disabled:!form.name.trim()||!form.type,onClick:saveAnimal},editId?tr.saveChanges:tr.addAnimal)
+          )
+        )
+      ),
+      manageList==="types"&&React.createElement(ListManager,{title:tr.speciesTypes,items:animalTypes,onSave:newList=>{setAnimalTypes(newList);saveSettings(newList,feeders);},onClose:()=>setManageList(null),tr}),
+      manageList==="feeders"&&React.createElement(ListManager,{title:tr.feederOpts,items:feeders,onSave:newList=>{setFeeders(newList);saveSettings(animalTypes,newList);},onClose:()=>setManageList(null),tr})
+    );
+  }
+
+  // ── DETAIL ────────────────────────────────────────────────────────────────────
+  if(page==="detail"&&animal){
+    const nf=nextFeedDate(animal);
+    const nextStr=nf?nf.toISOString().split("T")[0]:null;
+    const logs=animal.logs||[];
+    const tracking=animal.tracking||DEF_TRACKING;
+
+    return React.createElement("div",pageProps,
+      React.createElement("div",{className:"hdr-back"},
+        React.createElement("button",{className:"btn btn-ghost btn-sm",onClick:()=>setPage("dash")},tr.back),
+        React.createElement("div",{style:{display:"flex",gap:6}},
+          React.createElement("button",{className:"btn btn-outline-green btn-sm",onClick:()=>openEdit(animal)},tr.editBtn),
+          React.createElement("button",{className:"btn btn-danger btn-sm",onClick:()=>deleteAnimal(animal.id)},tr.deleteBtn)
+        )
+      ),
+      React.createElement("div",{className:"wrap"},
+        React.createElement("div",{className:"card card-green"},
+          React.createElement("div",{style:{display:"flex",gap:14,alignItems:"center"}},
+            React.createElement("span",{style:{fontSize:48}},typeEmoji(animal.type)),
+            React.createElement("div",null,
+              React.createElement("div",{style:{fontSize:22,fontWeight:700}},animal.name),
+              React.createElement("div",{style:{color:"#8b949e",fontSize:13}},animal.type+(animal.morph?" · "+animal.morph:"")),
+              animal.birthMonth&&animal.birthYear&&React.createElement("div",{style:{marginTop:6}},
+                React.createElement("span",{className:"badge",style:{background:"#238636",color:"#fff",fontSize:12}},
+                  calcAge(animal.birthMonth,animal.birthYear)+(tr.oldLbl?" "+tr.oldLbl:"")
+                ),
+                React.createElement("span",{style:{color:"#8b949e",fontSize:12,marginLeft:8}},tr.bornLbl+" "+MONTHS_S[animal.birthMonth-1]+" "+animal.birthYear)
+              )
+            )
+          )
+        ),
+        React.createElement("div",{style:{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}},
+          ALL_CATS.filter(cat=>tracking.includes(cat.key)).map(cat=>React.createElement("button",{key:cat.key,
+            style:{flex:"1 1 auto",minWidth:80,padding:"10px 6px",borderRadius:8,border:"1px solid "+cat.color+"55",background:"#161b22",color:cat.color,cursor:"pointer",fontFamily:"Georgia,serif",fontSize:12,fontWeight:700},
+            onClick:()=>openLogModal(cat.key,null,animal)
+          },cat.icon+" "+(lang==="he"?cat.he:cat.en)))
+        ),
+        React.createElement("div",{style:{display:"flex",gap:8,marginBottom:16,flexWrap:"wrap"}},
+          (()=>{
+            const items=[];
+            if(tracking.includes("feeding"))items.push(
+              {label:tr.nextFeed,el:React.createElement("span",null,React.createElement(FeedBadge,{animal,tr}),nextStr&&React.createElement("div",{style:{fontSize:11,color:"#8b949e",marginTop:3}},fmtDate(nextStr,MONTHS_S)))},
+              {label:tr.lastFed,el:React.createElement("span",{style:{fontWeight:700,color:"#7ee787",fontSize:13}},fmtDate(animal.lastFed,MONTHS_S))}
+            );
+            if(tracking.includes("water"))items.push({label:tr.lastWater,el:React.createElement("span",{style:{fontWeight:700,color:"#58a6ff",fontSize:13}},fmtDate(animal.lastWater,MONTHS_S))});
+            if(tracking.includes("shed"))items.push({label:tr.lastShed,el:React.createElement("span",{style:{fontWeight:700,color:"#d2a8ff",fontSize:13}},fmtDate(animal.lastShed,MONTHS_S))});
+            if(tracking.includes("weight"))items.push({label:tr.lastWeight,el:React.createElement("span",{style:{fontWeight:700,color:"#ffa657",fontSize:13}},animal.lastWeight?animal.lastWeight+"g":"—")});
+            if(tracking.includes("clean"))items.push({label:tr.lastClean,el:React.createElement("span",{style:{fontWeight:700,color:"#79c0ff",fontSize:13}},fmtDate(animal.lastClean,MONTHS_S))});
+            if(tracking.includes("defecate"))items.push({label:tr.lastDefecate,el:React.createElement("span",{style:{fontWeight:700,color:"#a8dadc",fontSize:13}},fmtDate(animal.lastDefecate,MONTHS_S))});
+            return items.map(item=>React.createElement("div",{key:item.label,className:"stat-box"},
+              React.createElement("div",{className:"stat-label"},item.label),item.el
+            ));
+          })()
+        ),
+        React.createElement("div",{className:"tabs"},
+          ["info","logs"].map(tab=>React.createElement("button",{key:tab,className:"tab"+(detailTab===tab?" active":""),onClick:()=>setDetailTab(tab)},
+            tab==="info"?tr.infoTab:tr.logsTab+" ("+logs.length+")"
+          ))
+        ),
+        detailTab==="info"&&React.createElement("div",{className:"card"},
+          React.createElement("div",{className:"sec"},tr.feedSchedule),
+          React.createElement("div",{style:{marginBottom:8}},
+            React.createElement("span",{style:{color:"#8b949e",fontSize:13}},tr.feederLbl+": "),
+            React.createElement("span",null,animal.feederName?(animal.feederSize?animal.feederName+" ("+animal.feederSize+")":animal.feederName):"—")
+          ),
+          React.createElement("div",null,
+            React.createElement("span",{style:{color:"#8b949e",fontSize:13}},tr.scheduleLbl+": "),
+            React.createElement("span",null,animal.scheduleType==="days"?tr.everyXDays.replace("X",animal.intervalDays):(animal.feedingDays&&animal.feedingDays.length?animal.feedingDays.map(d=>DAYS_EN[d]).join(", "):"—"))
+          ),
+          animal.notes&&React.createElement("div",null,
+            React.createElement("hr",{className:"divider"}),
+            React.createElement("div",{className:"sec"},tr.notesLbl),
+            React.createElement("div",{style:{color:"#c9d1d9",fontSize:14,lineHeight:1.6}},animal.notes)
+          )
+        ),
+        detailTab==="logs"&&(
+          logs.length===0
+            ?React.createElement("div",{style:{textAlign:"center",padding:40,color:"#8b949e"}},
+                React.createElement("div",{style:{fontSize:36,marginBottom:12}},"📋"),tr.noLogs
+              )
+            :React.createElement("div",null,
+                logs.map(log=>{
+                  const cfg=logCfg[log.type];
+                  const feeders=log.feeders&&log.feeders.length>0?log.feeders:log.feederLabel?[{name:log.feederLabel,size:""}]:[];
+                  return React.createElement("div",{key:log.id,className:"log-row",style:{flexDirection:"column",gap:6}},
+                    React.createElement("div",{style:{display:"flex",alignItems:"flex-start",gap:10}},
+                      React.createElement("span",{style:{fontSize:16,marginTop:1}},cfg&&cfg.icon),
+                      React.createElement("div",{style:{flex:1}},
+                        React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center"}},
+                          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}},
+                            React.createElement("span",{style:{fontWeight:700,color:cfg&&cfg.color,fontSize:13}},cfg&&(lang==="he"?cfg.he:cfg.en)),
+                            log.refused&&React.createElement("span",{style:{background:"#f8514922",color:"#f85149",borderRadius:20,padding:"1px 8px",fontSize:11,fontWeight:700}},"❌ Refused"),
+                            log.weight&&React.createElement("span",{style:{color:"#ffa657",fontSize:12}},"· "+log.weight+"g")
+                          ),
+                          React.createElement("span",{style:{fontSize:11,color:"#8b949e",flexShrink:0}},fmtDate(log.date,MONTHS_S))
+                        ),
+                        feeders.length>0&&React.createElement("div",{style:{marginTop:3}},
+                          feeders.map((f,fi)=>React.createElement("span",{key:fi,style:{fontSize:12,color:"#8b949e",marginRight:8}},
+                            "🐭 "+(f.size?f.name+" ("+f.size+")":f.name||f)
+                          ))
+                        ),
+                        React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginTop:3,flexWrap:"wrap"}},
+                          log.note&&React.createElement("span",{style:{fontSize:12,color:"#8b949e"}},log.note),
+                          log.user&&React.createElement("span",{style:{fontSize:11,color:"#8b949e",opacity:.5,fontStyle:"italic"}},"— "+log.user)
+                        )
+                      ),
+                      React.createElement("div",{style:{display:"flex",gap:4,flexShrink:0}},
+                        React.createElement("button",{className:"icon-btn",style:{color:"#58a6ff",fontSize:12},
+                          onClick:()=>openLogModal(log.type,log,animal)},"✏️"),
+                        React.createElement("button",{className:"icon-btn",style:{color:"#f85149",fontSize:12},
+                          onClick:()=>deleteLog(log.id)},"✕")
+                      )
+                    )
+                  );
+                })
+              )
+        )
+      ),
+      logModal&&React.createElement("div",{className:"overlay",onClick:closeLogModal},
+        React.createElement("div",{className:"modal",onClick:e=>e.stopPropagation()},
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8,marginBottom:16}},
+            React.createElement("span",{style:{fontSize:20}},logCfg[logModal]&&logCfg[logModal].icon),
+            React.createElement("h3",{style:{margin:0,color:logCfg[logModal]&&logCfg[logModal].color,fontSize:16}},
+              (lang==="he"?logCfg[logModal]&&logCfg[logModal].he:logCfg[logModal]&&logCfg[logModal].en)+(editLogId?" — Edit":"")
+            )
+          ),
+          React.createElement("div",{className:"modal-scroll"},
+            React.createElement("div",{className:"grp"},
+              React.createElement("label",{className:"lbl"},tr.dateLbl),
+              React.createElement("input",{className:"inp",type:"date",value:logDate,onChange:e=>setLogDate(e.target.value)})
+            ),
+            logModal==="feeding"&&React.createElement("div",{className:"grp"},
+              React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}},
+                React.createElement("label",{className:"lbl",style:{margin:0}},tr.whatFed),
+                React.createElement("div",{style:{display:"flex",alignItems:"center",gap:8}},
+                  React.createElement("span",{style:{fontSize:12,color:"#8b949e"}},lang==="he"?"סירב לאכול":"Refused?"),
+                  React.createElement("div",{
+                    style:{width:36,height:20,borderRadius:10,background:logRefused?"#f85149":"#30363d",cursor:"pointer",position:"relative",transition:"background .2s"},
+                    onClick:()=>setLogRefused(r=>!r)},
+                    React.createElement("div",{style:{position:"absolute",top:2,left:logRefused?18:2,width:16,height:16,borderRadius:"50%",background:"#fff",transition:"left .2s"}})
+                  )
+                )
+              ),
+              logFeeders.map((f,i)=>React.createElement("div",{key:i,style:{display:"flex",gap:6,alignItems:"center",marginBottom:8}},
+                React.createElement("div",{style:{flex:1}},
+                  React.createElement(FeederPicker,{feeders,value:f.name,sizeValue:f.size,
+                    onChange:v=>setLogFeeders(lf=>lf.map((x,j)=>j===i?{...x,name:v}:x)),
+                    onSizeChange:v=>setLogFeeders(lf=>lf.map((x,j)=>j===i?{...x,size:v}:x)),tr})
+                ),
+                logFeeders.length>1&&React.createElement("button",{
+                  style:{background:"none",border:"1px solid #f8514944",borderRadius:6,color:"#f85149",cursor:"pointer",padding:"8px 10px",fontSize:14},
+                  onClick:()=>setLogFeeders(lf=>lf.filter((_,j)=>j!==i))},"✕")
+              )),
+              React.createElement("button",{
+                style:{background:"none",border:"1px dashed #30363d",borderRadius:8,color:"#8b949e",cursor:"pointer",padding:"8px 14px",fontSize:13,width:"100%",marginTop:2},
+                onClick:()=>setLogFeeders(lf=>[...lf,{name:"",size:""}])
+              },"＋ "+(lang==="he"?"הוסף מזון נוסף":"Add another feeder"))
+            ),
+            logModal==="weight"&&React.createElement("div",{className:"grp"},
+              React.createElement("label",{className:"lbl"},tr.weightGrams),
+              React.createElement("input",{className:"inp",type:"number",min:"0",step:"0.1",placeholder:tr.weightPh,value:logWeight,onChange:e=>setLogWeight(e.target.value)})
+            ),
+            React.createElement("div",{className:"grp"},
+              React.createElement("label",{className:"lbl"},tr.noteOpt),
+              React.createElement("input",{className:"inp",placeholder:tr.anyNotes,value:logNote,onChange:e=>setLogNote(e.target.value)})
+            )
+          ),
+          React.createElement("div",{style:{display:"flex",gap:10,justifyContent:"flex-end",marginTop:14}},
+            React.createElement("button",{className:"btn btn-ghost",onClick:closeLogModal},tr.cancel),
+            React.createElement("button",{className:"btn btn-green",disabled:!logDate||(logModal==="weight"&&!logWeight),onClick:logEvent},
+              editLogId?(lang==="he"?"שמור שינויים":"Save Changes"):tr.saveLbl)
+          )
+        )
+      ),
+      showUndo&&React.createElement("div",{style:{position:"fixed",bottom:90,left:"50%",transform:"translateX(-50%)",
+        background:"#238636",color:"#fff",borderRadius:10,padding:"12px 18px",display:"flex",
+        alignItems:"center",gap:14,zIndex:300,boxShadow:"0 4px 20px #0008",whiteSpace:"nowrap",fontFamily:"Georgia,serif"}},
+        React.createElement("span",{style:{fontSize:13}},"✓ "+(lang==="he"?"נשמר":"Logged")),
+        React.createElement("button",{style:{background:"#fff2",border:"none",color:"#fff",borderRadius:6,
+          padding:"5px 12px",cursor:"pointer",fontFamily:"Georgia,serif",fontSize:13,fontWeight:700},
+          onClick:doUndo},lang==="he"?"בטל":"Undo")
+      )
+    );
+  }
+
+  return null;
+}
+
+function Root(){
+  const [ready,setReady]=useState(!!window._fbReady);
+  useEffect(()=>{
+    if(window._fbReady)return;
+    const h=()=>setReady(true);
+    document.addEventListener("fb-ready",h);
+    return()=>document.removeEventListener("fb-ready",h);
+  },[]);
+  if(!ready)return React.createElement("div",{className:"loading"},
+    React.createElement("div",{style:{fontSize:48}},"🦎"),
+    React.createElement("div",{className:"spinner"}),
+    React.createElement("div",{style:{color:"#8b949e",fontSize:14}},"Loading...")
+  );
+  return React.createElement(App);
+}
+
+const ldr=document.getElementById("initial-loader");
+if(ldr)ldr.style.display="none";
+ReactDOM.createRoot(document.getElementById("app")).render(React.createElement(Root));
+</script>
+</body>
+</html>
